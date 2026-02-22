@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Collage / torn-paper feel */
+.section-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-frame::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(255, 216, 92, 0.4) 0, transparent 55%),
+    radial-gradient(circle at 100% 40%, rgba(74, 144, 226, 0.25) 0, transparent 55%),
+    radial-gradient(circle at 0% 80%, rgba(255, 122, 162, 0.25) 0, transparent 55%);
+  mix-blend-mode: multiply;
+  opacity: 0.4;
+}
+
+.section-frame::after {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background-image: repeating-linear-gradient(
+    -4deg,
+    transparent 0 8px,
+    rgba(255, 255, 255, 0.45) 8px 12px
+  );
+  opacity: 0.75;
+  mask-image: radial-gradient(circle at top, black 0, black 55%, transparent 80%);
+  pointer-events: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
