@@ -63,24 +63,24 @@ const categories = [
     id: "anime",
     title: "Favourite Anime",
     items: [
-      { label: "Your Name", note: "Time & memory", image: anime1 },
-      { label: "Attack on Titan", note: "Scale & stakes", image: anime2 },
-      { label: "Spirited Away", note: "Magic & growth", image: anime3 },
-      { label: "Demon Slayer", note: "Family & honor", image: anime4 },
-      { label: "Naruto", note: "Dreams & bonds", image: anime5 },
-      { label: "Death Note", note: "Justice & morality", image: anime6 }
+      { image: anime1 },
+      { image: anime2 },
+      { image: anime3 },
+      { image: anime4 },
+      { image: anime5 },
+      { image: anime6 }
     ]
   },
   {
     id: "filmmakers",
     title: "Favourite Filmmakers",
     items: [
-      { label: "Quentin Tarantino", note: "Dialogue & violence", works: "Pulp Fiction, Kill Bill", image: tarantino },
-      { label: "Mysskin", note: "Dark & poetic", works: "Pisaasu, Onaayum Aattukkuttiyum", image: myskin },
-      { label: "Mike Miles", note: "Animation & heart", works: "Spider-Verse Series", image: mikeMiles },
-      { label: "Russo Brothers", note: "Scale & spectacle", works: "Avengers, The Gray Man", image: russoBrothers },
-      { label: "Steven Spielberg", note: "Wonder & adventure", works: "Jurassic Park, E.T.", image: stevenSpielberg },
-      { label: "Taika Waititi", note: "Comedy & chaos", works: "Thor: Ragnarok, Jojo Rabbit", image: taika }
+      { label: "Quentin Tarantino", image: tarantino },
+      { label: "Mysskin", image: myskin },
+      { label: "Mike Miles", image: mikeMiles },
+      { label: "Russo Brothers", image: russoBrothers },
+      { label: "Steven Spielberg", image: stevenSpielberg },
+      { label: "Taika Waititi", image: taika }
     ]
   }
 ];
@@ -374,15 +374,9 @@ function FilmmakerCarousel({ items }) {
 
             {/* Content */}
             <div className="absolute bottom-0 left-0 right-0 p-3">
-              <div className="text-[12px] uppercase tracking-[0.12em] font-semibold mb-1 text-amber-100">
+              <div className="text-[12px] uppercase tracking-[0.12em] font-semibold text-amber-100">
                 {item.label}
               </div>
-              <div className="text-[9px] text-amber-200/70 mb-1">{item.note}</div>
-              {item.works && (
-                <div className="text-[8px] text-amber-300/60 italic line-clamp-1">
-                  {item.works}
-                </div>
-              )}
             </div>
           </div>
         ))}
@@ -679,7 +673,7 @@ function AnimeCarousel({ items }) {
             {/* Anime Image */}
             <img 
               src={item.image} 
-              alt={item.label}
+              alt="Anime"
               className="absolute inset-0 w-full h-full object-cover"
             />
             
@@ -691,14 +685,6 @@ function AnimeCarousel({ items }) {
               <span className="text-[8px] uppercase tracking-[0.14em] bg-accentRed text-white px-2 py-1 rounded-full">
                 Anime
               </span>
-            </div>
-
-            {/* Content */}
-            <div className="absolute bottom-0 left-0 right-0 p-3">
-              <div className="text-[11px] uppercase tracking-[0.12em] font-semibold mb-1 text-amber-100">
-                {item.label}
-              </div>
-              <div className="text-[9px] text-amber-200/70">{item.note}</div>
             </div>
           </div>
         ))}
