@@ -67,7 +67,7 @@ function FilmCarousel() {
     const autoScroll = () => {
       if (!isHovered) {
         setCurrentIndex(prev => {
-          const next = prev + 0.3;
+          const next = prev + 0.1; // Scroll speed (reduced from 0.3)
           if (next >= totalPosters) {
             return 0;
           }
