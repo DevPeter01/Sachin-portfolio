@@ -23,15 +23,15 @@ export default function Equipment() {
               Sony Alpha A7 Mark IV
             </div>
           </div>
-          <div className="px-4 py-3 flex flex-col justify-center gap-2 text-[13px]">
-            <div className="text-[13px] uppercase tracking-[0.16em] font-semibold">
+          <div className="px-4 py-3 flex flex-col justify-center gap-2">
+            <div className="text-[13px] uppercase tracking-[0.16em] font-semibold text-neutral-800">
               Sony Alpha A7 Mark IV
             </div>
             <div className="text-[11px] uppercase tracking-[0.16em] text-neutral-600">
               Primary Camera · Full Frame
             </div>
-            <p className="text-[12px]">
-              Used for narrative shorts, location scouts, and visual experiments 
+            <p className="text-[12px] text-neutral-700">
+              Used for narrative shorts, location scouts, and visual experiments —
               giving me cinematic depth and flexibility in both natural and controlled light.
             </p>
           </div>
@@ -46,15 +46,15 @@ export default function Equipment() {
               Mac M4
             </div>
           </div>
-          <div className="px-4 py-3 flex flex-col justify-center gap-2 text-[13px]">
-            <div className="text-[13px] uppercase tracking-[0.16em] font-semibold">
+          <div className="px-4 py-3 flex flex-col justify-center gap-2">
+            <div className="text-[13px] uppercase tracking-[0.16em] font-semibold text-neutral-800">
               Mac M4
             </div>
             <div className="text-[11px] uppercase tracking-[0.16em] text-neutral-600">
               Editing & Sound Workstation
             </div>
-            <p className="text-[12px]">
-              My main postproduction base for editing, color and sound, keeping projects fast,
+            <p className="text-[12px] text-neutral-700">
+              My main post-production base for editing, color and sound, keeping projects fast,
               responsive, and ready for both student screenings and online releases.
             </p>
           </div>

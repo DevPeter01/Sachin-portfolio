@@ -36,11 +36,11 @@ function SkillMeter({ name, level, note }) {
 
   return (
     <div className="relative bg-white/90 rounded-[16px] border border-black/20 px-4 py-3 overflow-hidden">
-      <span className="absolute top-1.5 right-3 text-[8px] uppercase tracking-[0.18em] text-neutral-400">
+      <span className="absolute top-1.5 right-3 text-[8px] uppercase tracking-[0.18em] text-neutral-500">
         Loading Scene
       </span>
       <div className="flex items-baseline justify-between gap-2 mb-2">
-        <div className="text-[12px] uppercase tracking-[0.12em] font-semibold">{name}</div>
+        <div className="text-[12px] uppercase tracking-[0.12em] font-semibold text-neutral-800">{name}</div>
         <div className="text-[11px] text-neutral-600">{note}</div>
       </div>
       <div className="h-2 rounded-full bg-[#ffeecd] shadow-inner overflow-hidden border border-black/10">

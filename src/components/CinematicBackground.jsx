@@ -1,199 +1,453 @@
 import React from "react";
 
 export default function CinematicBackground() {
+  // Movie characters silhouettes and icons
+  const characters = [
+    { name: "Batman", icon: "🦇" },
+    { name: "Spider-Man", icon: "🕷️" },
+    { name: "Iron Man", icon: "🤖" },
+    { name: "Superhero", icon: "🦸" },
+    { name: "Alien", icon: "👽" },
+    { name: "Robot", icon: "🤖" },
+    { name: "Ghost", icon: "👻" },
+    { name: "Skull", icon: "💀" },
+    { name: "Clown", icon: "🤡" },
+    { name: "Ninja", icon: "🥷" },
+  ];
+
+  // Cinema elements
+  const cinemaElements = [
+    "🎬", "🎥", "🎞️", "📽️", "🎦", "🎭", "🎪", "🎟️", "🎫", "🏆",
+    "⭐", "🌟", "✨", "💫", "🔥", "💥", "⚡", "🎯", "🎨", "🖼️"
+  ];
+
+  // Movie quotes and references
+  const movieQuotes = [
+    "I'll be back", "May the Force be", "Here's Johnny!", 
+    "To infinity!", "Why so serious?", "I see dead people",
+    "Action!", "Cut!", "That's a wrap!", "Lights, Camera!",
+    "The show must go on", "A star is born", "Roll camera",
+    "Scene 1 Take 1", "Director's Cut", "Final Cut",
+    "In a galaxy far", "With great power", "I am your father",
+    "Life is like a box", "You talking to me?", "Here's looking at you"
+  ];
+
+  // Director names
+  const directors = [
+    "Spielberg", "Nolan", "Tarantino", "Scorsese", "Kubrick",
+    "Hitchcock", "Coppola", "Fincher", "Villeneuve", "Cameron",
+    "Anderson", "Tarantino", "Del Toro", "Kurosawa", "Hitchcock"
+  ];
+
+  // Movie titles
+  const movieTitles = [
+    "INCEPTION", "INTERSTELLAR", "THE GODFATHER", "PULP FICTION",
+    "DARK KNIGHT", "AVATAR", "TITANIC", "JAWS", "STAR WARS",
+    "MATRIX", "FIGHT CLUB", "FORREST GUMP", "GLADIATOR", "BRAVEHEART",
+    "SHAWANK", "GOODFELLAS", "CITIZEN KANE", "VERTIGO", "PSYCHO"
+  ];
+
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      {/* Base gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f0f23]" />
-      
-      {/* Film grain overlay */}
-      <div 
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        }}
-      />
-
-      {/* Floating cinema elements */}
-      <div className="absolute inset-0">
-        {/* Film reel 1 - top left */}
-        <div className="absolute -top-10 -left-10 w-48 h-48 opacity-20 animate-spin-slow">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-yellow-500">
-            <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="8" fill="none"/>
-            <circle cx="50" cy="50" r="15" fill="currentColor"/>
-            <circle cx="50" cy="25" r="6" fill="currentColor"/>
-            <circle cx="50" cy="75" r="6" fill="currentColor"/>
-            <circle cx="25" cy="50" r="6" fill="currentColor"/>
-            <circle cx="75" cy="50" r="6" fill="currentColor"/>
-          </svg>
-        </div>
-
-        {/* Film reel 2 - bottom right */}
-        <div className="absolute -bottom-20 -right-20 w-64 h-64 opacity-15 animate-spin-reverse">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-orange-500">
-            <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="8" fill="none"/>
-            <circle cx="50" cy="50" r="15" fill="currentColor"/>
-            <circle cx="50" cy="20" r="8" fill="currentColor"/>
-            <circle cx="50" cy="80" r="8" fill="currentColor"/>
-            <circle cx="20" cy="50" r="8" fill="currentColor"/>
-            <circle cx="80" cy="50" r="8" fill="currentColor"/>
-          </svg>
-        </div>
-
-        {/* Film strip 1 - diagonal top */}
-        <div className="absolute top-20 left-1/4 w-80 h-20 opacity-25 -rotate-12">
-          <svg viewBox="0 0 320 40" className="w-full h-full text-gray-400">
-            <rect x="0" y="0" width="320" height="40" fill="currentColor" rx="2"/>
-            <rect x="5" y="5" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="30" y="5" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="55" y="5" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="80" y="5" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="105" y="5" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="130" y="5" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="155" y="5" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="180" y="5" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="205" y="5" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="230" y="5" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="255" y="5" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="280" y="5" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="5" y="25" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="30" y="25" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="55" y="25" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="80" y="25" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="105" y="25" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="130" y="25" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="155" y="25" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="180" y="25" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="205" y="25" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="230" y="25" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="255" y="25" width="20" height="10" fill="#1a1a2e"/>
-            <rect x="280" y="25" width="20" height="10" fill="#1a1a2e"/>
-          </svg>
-        </div>
-
-        {/* Film strip 2 - bottom */}
-        <div className="absolute bottom-32 right-1/4 w-96 h-16 opacity-20 rotate-6">
-          <svg viewBox="0 0 400 30" className="w-full h-full text-amber-600">
-            <rect x="0" y="0" width="400" height="30" fill="currentColor" rx="2"/>
-            {[...Array(16)].map((_, i) => (
-              <rect key={i} x={8 + i * 24} y="4" width="16" height="6" fill="#1a1a2e"/>
-            ))}
-            {[...Array(16)].map((_, i) => (
-              <rect key={i} x={8 + i * 24} y="20" width="16" height="6" fill="#1a1a2e"/>
-            ))}
-          </svg>
-        </div>
-
-        {/* Clapperboard - top right */}
-        <div className="absolute top-16 right-10 w-32 h-28 opacity-30 -rotate-6 animate-float">
-          <svg viewBox="0 0 80 90" className="w-full h-full text-white">
-            <rect x="0" y="0" width="80" height="30" fill="currentColor"/>
-            <rect x="0" y="30" width="80" height="60" fill="#333"/>
-            <line x1="0" y1="0" x2="20" y2="30" stroke="#1a1a2e" strokeWidth="10"/>
-            <line x1="20" y1="0" x2="40" y2="30" stroke="currentColor" strokeWidth="10"/>
-            <line x1="40" y1="0" x2="60" y2="30" stroke="#1a1a2e" strokeWidth="10"/>
-            <line x1="60" y1="0" x2="80" y2="30" stroke="currentColor" strokeWidth="10"/>
-          </svg>
-        </div>
-
-        {/* Camera icon - left side */}
-        <div className="absolute top-1/3 -left-5 w-24 h-24 opacity-20 animate-pulse-slow">
-          <svg viewBox="0 0 100 80" className="w-full h-full text-sky-400">
-            <rect x="0" y="20" width="70" height="50" rx="8" fill="currentColor"/>
-            <circle cx="55" cy="45" r="18" fill="#1a1a2e" stroke="currentColor" strokeWidth="4"/>
-            <circle cx="55" cy="45" r="8" fill="currentColor"/>
-            <rect x="70" y="35" width="25" height="20" rx="3" fill="currentColor"/>
-          </svg>
-        </div>
-
-        {/* Popcorn bucket - bottom left */}
-        <div className="absolute bottom-20 left-10 w-20 h-24 opacity-25 animate-float-delayed">
-          <svg viewBox="0 0 60 80" className="w-full h-full text-red-500">
-            <path d="M10 30 L5 75 L55 75 L50 30 Z" fill="currentColor"/>
-            <rect x="10" y="30" width="40" height="45" fill="currentColor"/>
-            <circle cx="20" cy="25" r="10" fill="#ffeaa7"/>
-            <circle cx="35" cy="20" r="12" fill="#ffeaa7"/>
-            <circle cx="45" cy="28" r="9" fill="#ffeaa7"/>
-            <circle cx="28" cy="15" r="8" fill="#ffeaa7"/>
-          </svg>
-        </div>
-
-        {/* Star burst decorations */}
-        <div className="absolute top-1/4 right-1/3 w-16 h-16 opacity-30 animate-spin-slow">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-yellow-400">
-            <path d="M50 0 L58 40 L100 50 L58 60 L50 100 L42 60 L0 50 L42 40 Z" fill="currentColor"/>
-          </svg>
-        </div>
-
-        <div className="absolute bottom-1/4 left-1/3 w-12 h-12 opacity-25 animate-pulse-slow">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-pink-500">
-            <path d="M50 0 L58 40 L100 50 L58 60 L50 100 L42 60 L0 50 L42 40 Z" fill="currentColor"/>
-          </svg>
-        </div>
-
-        {/* Director chair - right side */}
-        <div className="absolute top-2/3 right-5 w-28 h-32 opacity-20">
-          <svg viewBox="0 0 70 100" className="w-full h-full text-purple-500">
-            <rect x="10" y="30" width="50" height="40" fill="currentColor"/>
-            <rect x="10" y="30" width="50" height="12" fill="#1a1a2e"/>
-            <line x1="10" y1="70" x2="5" y2="95" stroke="currentColor" strokeWidth="4"/>
-            <line x1="60" y1="70" x2="65" y2="95" stroke="currentColor" strokeWidth="4"/>
-            <line x1="10" y1="30" x2="5" y2="10" stroke="currentColor" strokeWidth="4"/>
-            <line x1="60" y1="30" x2="65" y2="10" stroke="currentColor" strokeWidth="4"/>
-          </svg>
-        </div>
-
-        {/* Movie ticket - floating */}
-        <div className="absolute top-1/2 left-1/4 w-28 h-16 opacity-25 rotate-12 animate-float">
-          <svg viewBox="0 0 100 50" className="w-full h-full text-amber-300">
-            <rect x="0" y="5" width="100" height="40" rx="4" fill="currentColor"/>
-            <circle cx="0" cy="25" r="8" fill="#1a1a2e"/>
-            <circle cx="100" cy="25" r="8" fill="#1a1a2e"/>
-            <line x1="15" y1="15" x2="85" y2="15" stroke="#1a1a2e" strokeWidth="2"/>
-            <line x1="15" y1="25" x2="85" y2="25" stroke="#1a1a2e" strokeWidth="2"/>
-            <line x1="15" y1="35" x2="60" y2="35" stroke="#1a1a2e" strokeWidth="2"/>
-          </svg>
-        </div>
-
-        {/* Spotlight beams */}
-        <div className="absolute top-0 left-1/3 w-32 h-96 opacity-10 -rotate-12 bg-gradient-to-b from-white to-transparent transform -skew-x-12" />
-        <div className="absolute top-0 right-1/4 w-24 h-80 opacity-10 rotate-6 bg-gradient-to-b from-yellow-200 to-transparent transform skew-x-12" />
-
-        {/* Globe with film */}
-        <div className="absolute bottom-10 left-1/3 w-20 h-20 opacity-20 animate-pulse-slow">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-teal-400">
-            <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="3" fill="none"/>
-            <ellipse cx="50" cy="50" rx="20" ry="40" stroke="currentColor" strokeWidth="2" fill="none"/>
-            <line x1="10" y1="50" x2="90" y2="50" stroke="currentColor" strokeWidth="2"/>
-          </svg>
-        </div>
-
-        {/* Award trophy */}
-        <div className="absolute top-1/3 right-20 w-16 h-20 opacity-25">
-          <svg viewBox="0 0 60 90" className="w-full h-full text-yellow-500">
-            <path d="M20 0 L40 0 L38 35 L50 35 L40 50 L45 50 L45 55 L35 55 L32 70 L28 70 L25 55 L15 55 L15 50 L20 50 L10 35 L22 35 Z" fill="currentColor"/>
-            <rect x="22" y="70" width="16" height="10" fill="currentColor"/>
-            <rect x="18" y="80" width="24" height="8" rx="2" fill="currentColor"/>
-          </svg>
-        </div>
-
-        {/* Floating circles/bubbles */}
-        <div className="absolute top-20 left-1/2 w-8 h-8 rounded-full bg-red-500 opacity-15 animate-float" />
-        <div className="absolute top-1/2 right-1/3 w-12 h-12 rounded-full bg-blue-500 opacity-10 animate-float-delayed" />
-        <div className="absolute bottom-40 right-1/2 w-6 h-6 rounded-full bg-yellow-500 opacity-15 animate-float" />
-        <div className="absolute top-2/3 left-1/4 w-10 h-10 rounded-full bg-purple-500 opacity-10 animate-float-delayed" />
-        <div className="absolute top-1/4 left-1/3 w-4 h-4 rounded-full bg-green-500 opacity-20 animate-float" />
-      </div>
-
-      {/* Gradient overlays for depth */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f23] via-transparent to-[#1a1a2e] opacity-50" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#16213e]/30 via-transparent to-[#16213e]/30" />
-      
-      {/* Vignette effect */}
+      {/* Deep cinematic gradient base */}
       <div 
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(circle at center, transparent 30%, rgba(15, 15, 35, 0.7) 100%)'
+          background: `
+            radial-gradient(ellipse at 20% 20%, rgba(139, 69, 19, 0.15) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 80%, rgba(75, 0, 130, 0.1) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(178, 34, 34, 0.08) 0%, transparent 60%),
+            linear-gradient(180deg, 
+              #0a0a0f 0%, 
+              #0d0d14 15%, 
+              #111118 30%, 
+              #0f0a0d 50%, 
+              #0a0a0f 70%, 
+              #080810 85%, 
+              #050508 100%
+            )
+          `
+        }}
+      />
+
+      {/* Film grain texture */}
+      <div 
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        }}
+      />
+
+      {/* Vignette */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 10%, rgba(0, 0, 0, 0.6) 100%)'
+        }}
+      />
+
+      {/* ========== CONTENT LAYER - Dense cinema elements ========== */}
+      <div className="absolute inset-0">
+        
+        {/* Scattered movie quotes - Layer 1 */}
+        {movieQuotes.map((quote, i) => (
+          <span
+            key={`quote-${i}`}
+            className="absolute text-[8px] md:text-[10px] font-serif italic text-white/10 truncate max-w-[100px]"
+            style={{
+              top: `${(i * 4.5) % 95}%`,
+              left: `${(i * 7.3) % 90}%`,
+              transform: `rotate(${(i * 15) - 10}deg)`,
+            }}
+          >
+            "{quote}"
+          </span>
+        ))}
+
+        {/* Director names - Layer 2 */}
+        {directors.map((director, i) => (
+          <span
+            key={`director-${i}`}
+            className="absolute text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-amber-500/8"
+            style={{
+              top: `${(i * 6.8) % 90}%`,
+              left: `${(i * 11.5) % 85}%`,
+              transform: `rotate(${(i * 8) - 20}deg)`,
+            }}
+          >
+            {director}
+          </span>
+        ))}
+
+        {/* Movie titles - Layer 3 */}
+        {movieTitles.map((title, i) => (
+          <span
+            key={`title-${i}`}
+            className="absolute text-[7px] md:text-[9px] font-mono font-bold tracking-[0.3em] text-white/6"
+            style={{
+              top: `${(i * 5.2) % 92}%`,
+              left: `${(i * 9.7) % 88}%`,
+              transform: `rotate(${(i * 12) - 30}deg)`,
+            }}
+          >
+            {title}
+          </span>
+        ))}
+
+        {/* Cinema emoji icons - Dense scatter */}
+        {cinemaElements.map((emoji, i) => (
+          <span
+            key={`emoji-${i}`}
+            className="absolute text-lg md:text-2xl"
+            style={{
+              top: `${(i * 4.7 + 2) % 96}%`,
+              left: `${(i * 6.1 + 3) % 94}%`,
+              opacity: 0.08 + (i % 5) * 0.02,
+              transform: `rotate(${(i * 25) % 45 - 22}deg) scale(${0.8 + (i % 3) * 0.2})`,
+            }}
+          >
+            {emoji}
+          </span>
+        ))}
+
+        {/* Character icons */}
+        {characters.map((char, i) => (
+          <span
+            key={`char-${i}`}
+            className="absolute text-2xl md:text-4xl"
+            style={{
+              top: `${(i * 9.3 + 5) % 90}%`,
+              left: `${(i * 10.2 + 8) % 88}%`,
+              opacity: 0.06 + (i % 4) * 0.02,
+              transform: `rotate(${(i * 30) % 60 - 30}deg)`,
+            }}
+          >
+            {char.icon}
+          </span>
+        ))}
+
+        {/* Film strip decorations - Multiple strips */}
+        {[...Array(6)].map((_, i) => (
+          <svg
+            key={`filmstrip-${i}`}
+            className="absolute text-white/5"
+            style={{
+              top: `${10 + i * 15}%`,
+              left: `${-5 + (i % 3) * 35}%`,
+              width: `${120 + i * 30}px`,
+              height: '30px',
+              transform: `rotate(${-8 + i * 4}deg)`,
+            }}
+            viewBox="0 0 200 30"
+          >
+            <rect x="0" y="0" width="200" height="30" fill="currentColor" rx="2"/>
+            {[...Array(9)].map((_, j) => (
+              <React.Fragment key={j}>
+                <rect x={8 + j * 22} y="4" width="12" height="8" fill="#0a0a0f"/>
+                <rect x={8 + j * 22} y="18" width="12" height="8" fill="#0a0a0f"/>
+              </React.Fragment>
+            ))}
+          </svg>
+        ))}
+
+        {/* Film reels - Scattered */}
+        {[...Array(5)].map((_, i) => (
+          <svg
+            key={`reel-${i}`}
+            className="absolute text-amber-600/10"
+            style={{
+              top: `${5 + i * 20}%`,
+              left: `${80 - i * 18}%`,
+              width: `${60 + i * 15}px`,
+              height: `${60 + i * 15}px`,
+              transform: `rotate(${i * 72}deg)`,
+            }}
+            viewBox="0 0 100 100"
+          >
+            <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="4" fill="none"/>
+            <circle cx="50" cy="50" r="15" fill="currentColor"/>
+            {[0, 60, 120, 180, 240, 300].map((angle) => (
+              <circle
+                key={angle}
+                cx={50 + 32 * Math.cos(angle * Math.PI / 180)}
+                cy={50 + 32 * Math.sin(angle * Math.PI / 180)}
+                r="8"
+                fill="currentColor"
+              />
+            ))}
+          </svg>
+        ))}
+
+        {/* Clapperboards */}
+        {[...Array(4)].map((_, i) => (
+          <svg
+            key={`clapper-${i}`}
+            className="absolute text-white/8"
+            style={{
+              top: `${15 + i * 22}%`,
+              right: `${5 + i * 12}%`,
+              width: `${40 + i * 10}px`,
+              height: `${50 + i * 8}px`,
+              transform: `rotate(${-5 + i * 8}deg)`,
+            }}
+            viewBox="0 0 50 60"
+          >
+            <rect x="0" y="0" width="50" height="20" fill="currentColor"/>
+            <rect x="0" y="20" width="50" height="40" fill="currentColor" opacity="0.7"/>
+            <line x1="0" y1="0" x2="13" y2="20" stroke="#0a0a0f" strokeWidth="6"/>
+            <line x1="13" y1="0" x2="26" y2="20" stroke="currentColor" strokeWidth="6"/>
+            <line x1="26" y1="0" x2="39" y2="20" stroke="#0a0a0f" strokeWidth="6"/>
+            <line x1="39" y1="0" x2="50" y2="20" stroke="currentColor" strokeWidth="6"/>
+          </svg>
+        ))}
+
+        {/* Camera icons */}
+        {[...Array(4)].map((_, i) => (
+          <svg
+            key={`camera-${i}`}
+            className="absolute text-sky-400/8"
+            style={{
+              top: `${25 + i * 18}%`,
+              left: `${3 + i * 25}%`,
+              width: `${35 + i * 8}px`,
+              height: `${28 + i * 6}px`,
+              transform: `rotate(${-3 + i * 5}deg)`,
+            }}
+            viewBox="0 0 60 40"
+          >
+            <rect x="0" y="8" width="40" height="28" rx="4" fill="currentColor"/>
+            <circle cx="28" cy="22" r="10" fill="#0a0a0f" stroke="currentColor" strokeWidth="2"/>
+            <circle cx="28" cy="22" r="4" fill="currentColor"/>
+            <polygon points="40,15 55,8 55,32 40,25" fill="currentColor"/>
+          </svg>
+        ))}
+
+        {/* Popcorn buckets */}
+        {[...Array(3)].map((_, i) => (
+          <svg
+            key={`popcorn-${i}`}
+            className="absolute text-red-500/10"
+            style={{
+              bottom: `${10 + i * 30}%`,
+              left: `${10 + i * 35}%`,
+              width: `${30 + i * 8}px`,
+              height: `${40 + i * 10}px`,
+            }}
+            viewBox="0 0 40 55"
+          >
+            <path d="M8 18 L4 52 L36 52 L32 18 Z" fill="currentColor"/>
+            <circle cx="14" cy="15" r="8" fill="#fef3c7"/>
+            <circle cx="26" cy="12" r="9" fill="#fef3c7"/>
+            <circle cx="20" cy="8" r="7" fill="#fef3c7"/>
+          </svg>
+        ))}
+
+        {/* Director chairs */}
+        {[...Array(3)].map((_, i) => (
+          <svg
+            key={`chair-${i}`}
+            className="absolute text-purple-500/8"
+            style={{
+              top: `${40 + i * 20}%`,
+              right: `${15 + i * 30}%`,
+              width: `${25 + i * 5}px`,
+              height: `${35 + i * 8}px`,
+            }}
+            viewBox="0 0 35 50"
+          >
+            <rect x="5" y="15" width="25" height="20" fill="currentColor"/>
+            <rect x="5" y="15" width="25" height="6" fill="#0a0a0f"/>
+            <line x1="5" y1="35" x2="3" y2="48" stroke="currentColor" strokeWidth="3"/>
+            <line x1="30" y1="35" x2="32" y2="48" stroke="currentColor" strokeWidth="3"/>
+            <line x1="5" y1="15" x2="3" y2="5" stroke="currentColor" strokeWidth="3"/>
+            <line x1="30" y1="15" x2="32" y2="5" stroke="currentColor" strokeWidth="3"/>
+          </svg>
+        ))}
+
+        {/* Award trophies */}
+        {[...Array(3)].map((_, i) => (
+          <svg
+            key={`trophy-${i}`}
+            className="absolute text-yellow-500/12"
+            style={{
+              top: `${5 + i * 35}%`,
+              left: `${70 - i * 20}%`,
+              width: `${20 + i * 5}px`,
+              height: `${28 + i * 6}px`,
+            }}
+            viewBox="0 0 30 45"
+          >
+            <path d="M10 0 L20 0 L19 18 L25 18 L20 25 L22 25 L22 28 L17 28 L16 35 L14 35 L13 28 L8 28 L8 25 L10 25 L5 18 L11 18 Z" fill="currentColor"/>
+            <rect x="11" y="35" width="8" height="5" fill="currentColor"/>
+            <rect x="9" y="40" width="12" height="4" rx="1" fill="currentColor"/>
+          </svg>
+        ))}
+
+        {/* Tickets */}
+        {[...Array(4)].map((_, i) => (
+          <svg
+            key={`ticket-${i}`}
+            className="absolute text-amber-300/10"
+            style={{
+              top: `${12 + i * 22}%`,
+              left: `${20 + i * 18}%`,
+              width: `${45 + i * 8}px`,
+              height: `${22 + i * 3}px`,
+              transform: `rotate(${5 + i * 8}deg)`,
+            }}
+            viewBox="0 0 60 25"
+          >
+            <rect x="0" y="2" width="60" height="21" rx="2" fill="currentColor"/>
+            <circle cx="0" cy="12" r="5" fill="#0a0a0f"/>
+            <circle cx="60" cy="12" r="5" fill="#0a0a0f"/>
+            <line x1="10" y1="8" x2="50" y2="8" stroke="#0a0a0f" strokeWidth="1.5"/>
+            <line x1="10" y1="13" x2="50" y2="13" stroke="#0a0a0f" strokeWidth="1.5"/>
+          </svg>
+        ))}
+
+        {/* Stars scattered */}
+        {[...Array(15)].map((_, i) => (
+          <svg
+            key={`star-${i}`}
+            className="absolute text-yellow-400/15"
+            style={{
+              top: `${(i * 6.5 + 3) % 95}%`,
+              left: `${(i * 7.3 + 5) % 92}%`,
+              width: `${12 + (i % 4) * 4}px`,
+              height: `${12 + (i % 4) * 4}px`,
+              transform: `rotate(${i * 24}deg)`,
+            }}
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 2 L14 9 L21 9 L16 14 L18 21 L12 17 L6 21 L8 14 L3 9 L10 9 Z" fill="currentColor"/>
+          </svg>
+        ))}
+
+        {/* Spotlight beams */}
+        <div 
+          className="absolute top-0 left-[10%] w-[200px] h-[500px] opacity-[0.06] -rotate-12"
+          style={{
+            background: 'linear-gradient(180deg, rgba(255,200,100,0.8) 0%, transparent 100%)',
+            transform: 'skewX(-15deg)',
+          }}
+        />
+        <div 
+          className="absolute top-0 right-[15%] w-[150px] h-[400px] opacity-[0.05] rotate-6"
+          style={{
+            background: 'linear-gradient(180deg, rgba(100,150,255,0.6) 0%, transparent 100%)',
+            transform: 'skewX(12deg)',
+          }}
+        />
+
+        {/* More scattered text - Scene numbers */}
+        {[...Array(10)].map((_, i) => (
+          <span
+            key={`scene-${i}`}
+            className="absolute text-[8px] font-mono text-white/8"
+            style={{
+              top: `${(i * 10) + 5}%`,
+              left: `${(i * 9.5) % 90 + 2}%`,
+            }}
+          >
+            SCENE {i + 1} - TAKE {Math.floor(Math.random() * 5) + 1}
+          </span>
+        ))}
+
+        {/* Timecodes */}
+        {[...Array(8)].map((_, i) => (
+          <span
+            key={`timecode-${i}`}
+            className="absolute text-[7px] font-mono text-red-500/15"
+            style={{
+              top: `${(i * 12) + 8}%`,
+              right: `${(i * 11) % 85 + 5}%`,
+            }}
+          >
+            {String(Math.floor(Math.random() * 2)).padStart(2, '0')}:
+            {String(Math.floor(Math.random() * 60)).padStart(2, '0')}:
+            {String(Math.floor(Math.random() * 60)).padStart(2, '0')}:
+            {String(Math.floor(Math.random() * 24)).padStart(2, '0')}
+          </span>
+        ))}
+
+        {/* Floating dots/particles */}
+        {[...Array(30)].map((_, i) => (
+          <div
+            key={`dot-${i}`}
+            className="absolute rounded-full"
+            style={{
+              width: `${2 + (i % 3)}px`,
+              height: `${2 + (i % 3)}px`,
+              top: `${(i * 3.3) % 98}%`,
+              left: `${(i * 3.3 + 1) % 97}%`,
+              backgroundColor: i % 3 === 0 ? 'rgba(255,200,100,0.15)' : i % 3 === 1 ? 'rgba(100,150,255,0.1)' : 'rgba(255,100,100,0.12)',
+            }}
+          />
+        ))}
+
+        {/* Lens flares */}
+        <div 
+          className="absolute top-[20%] right-[25%] w-[100px] h-[100px] rounded-full opacity-[0.04]"
+          style={{
+            background: 'radial-gradient(circle, rgba(255,220,150,0.8) 0%, transparent 70%)',
+          }}
+        />
+        <div 
+          className="absolute top-[60%] left-[15%] w-[80px] h-[80px] rounded-full opacity-[0.03]"
+          style={{
+            background: 'radial-gradient(circle, rgba(150,200,255,0.6) 0%, transparent 70%)',
+          }}
+        />
+
+      </div>
+
+      {/* Additional dark overlay for depth */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: `
+            radial-gradient(ellipse 60% 40% at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.3) 100%)
+          `
         }}
       />
     </div>
