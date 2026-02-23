@@ -1,15 +1,37 @@
 import React, { useState } from "react";
 import ScrollRevealSection from "./ScrollRevealSection.jsx";
 
+// Import film posters
+import poster1 from "../../assets/fav-flim/poster.jpg";
+import poster2 from "../../assets/fav-flim/poster1.jpg";
+import poster3 from "../../assets/fav-flim/poster24.webp";
+import poster4 from "../../assets/fav-flim/poster3456.webp";
+import poster5 from "../../assets/fav-flim/terminal poster.webp";
+import poster6 from "../../assets/fav-flim/cap poster.avif";
+import poster7 from "../../assets/fav-flim/cars poster.webp";
+import poster8 from "../../assets/fav-flim/bf poster.avif";
+import poster9 from "../../assets/fav-flim/iraivi poster.webp";
+import poster10 from "../../assets/fav-flim/poster kkk.jpg";
+import poster11 from "../../assets/fav-flim/Cmoncmon1.jpg";
+import poster12 from "../../assets/fav-flim/wres poster4.jpg";
+
 const categories = [
   {
     id: "films",
     title: "Favourite Films",
     items: [
-      { label: "Whiplash", note: "Intensity & rhythm" },
-      { label: "Super Deluxe", note: "Multi-thread chaos" },
-      { label: "Inception", note: "Dreams within dreams" },
-      { label: "Parasite", note: "Class & chaos" }
+      { label: "Inception", note: "Dreams within dreams", poster: poster1 },
+      { label: "Interstellar", note: "Time & space", poster: poster2 },
+      { label: "The Dark Knight", note: "Chaos & order", poster: poster3 },
+      { label: "Parasite", note: "Class & chaos", poster: poster4 },
+      { label: "The Terminal", note: "Waiting & hope", poster: poster5 },
+      { label: "Captain America", note: "Heroism & sacrifice", poster: poster6 },
+      { label: "Cars", note: "Speed & friendship", poster: poster7 },
+      { label: "The Batman", note: "Vengeance & justice", poster: poster8 },
+      { label: "Iraivi", note: "Women & freedom", poster: poster9 },
+      { label: "Super Deluxe", note: "Multi-thread chaos", poster: poster10 },
+      { label: "C'mon C'mon", note: "Life & connections", poster: poster11 },
+      { label: "The Wrestler", note: "Glory & decay", poster: poster12 }
     ]
   },
   {
@@ -81,26 +103,50 @@ export default function Favourites() {
           {activeData?.items.map((item, index) => (
             <div
               key={item.label}
-              className={`relative aspect-[3/4] rounded-[16px] bg-gradient-to-br from-[#ffe4d5] to-[#fde6ff] shadow-[0_16px_0_rgba(0,0,0,0.18)] overflow-hidden transition-all duration-300 ${
+              className={`relative aspect-[3/4] rounded-[16px] shadow-[0_16px_0_rgba(0,0,0,0.18)] overflow-hidden transition-all duration-300 group ${
                 index % 2 === 0 ? "-rotate-1" : "rotate-1"
               } hover:rotate-0 hover:-translate-y-2 hover:shadow-[0_22px_0_rgba(0,0,0,0.2)]`}
             >
-              {/* Background texture */}
-              <div className="absolute inset-2 rounded-[12px] bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.7),transparent_50%),linear-gradient(135deg,rgba(0,0,0,0.05),transparent_40%)] mix-blend-multiply" />
+              {/* Poster Image or Gradient Background */}
+              {item.poster ? (
+                <img 
+                  src={item.poster} 
+                  alt={item.label}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-[#ffe4d5] to-[#fde6ff]" />
+              )}
+              
+              {/* Overlay gradient for text readability */}
+              {item.poster && (
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              )}
+              
+              {/* Background texture for non-poster items */}
+              {!item.poster && (
+                <div className="absolute inset-2 rounded-[12px] bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.7),transparent_50%),linear-gradient(135deg,rgba(0,0,0,0.05),transparent_40%)] mix-blend-multiply" />
+              )}
               
               {/* Category badge */}
-              <div className="absolute top-3 left-3">
+              <div className="absolute top-3 left-3 z-10">
                 <span className="text-[8px] uppercase tracking-[0.14em] bg-black/70 text-white px-2 py-1 rounded-full">
                   {activeData.id === "filmmakers" ? "Director" : activeData.id.slice(0, -1)}
                 </span>
               </div>
 
               {/* Content */}
-              <div className="absolute bottom-2 left-2 right-2 bg-[#fffaf5]/95 rounded-[12px] px-3 py-3">
-                <div className="text-[12px] uppercase tracking-[0.12em] font-semibold mb-1">
+              <div className={`absolute bottom-2 left-2 right-2 rounded-[12px] px-3 py-3 ${
+                item.poster ? 'bg-transparent' : 'bg-[#fffaf5]/95'
+              }`}>
+                <div className={`text-[12px] uppercase tracking-[0.12em] font-semibold mb-1 ${
+                  item.poster ? 'text-white' : ''
+                }`}>
                   {item.label}
                 </div>
-                <div className="text-[9px] text-neutral-600 mb-1">{item.note}</div>
+                <div className={`text-[9px] mb-1 ${
+                  item.poster ? 'text-white/80' : 'text-neutral-600'
+                }`}>{item.note}</div>
                 {item.works && (
                   <div className="text-[8px] text-neutral-500 italic">
                     {item.works}
