@@ -2,25 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Collage / torn-paper feel */
+/* Cinematic film aesthetic */
 .section-frame {
   position: relative;
   overflow: hidden;
 }
 
+/* Warm cinematic color accents */
 .section-frame::before {
   content: "";
   position: absolute;
   inset: -40px;
   pointer-events: none;
   background-image:
-    radial-gradient(circle at 20% 0%, rgba(255, 216, 92, 0.4) 0, transparent 55%),
-    radial-gradient(circle at 100% 40%, rgba(74, 144, 226, 0.25) 0, transparent 55%),
-    radial-gradient(circle at 0% 80%, rgba(255, 122, 162, 0.25) 0, transparent 55%);
+    radial-gradient(circle at 20% 0%, rgba(245, 158, 11, 0.2) 0, transparent 55%),
+    radial-gradient(circle at 100% 40%, rgba(220, 38, 38, 0.15) 0, transparent 55%),
+    radial-gradient(circle at 0% 80%, rgba(217, 119, 6, 0.15) 0, transparent 55%);
   mix-blend-mode: multiply;
-  opacity: 0.4;
+  opacity: 0.6;
 }
 
+/* Film texture overlay */
 .section-frame::after {
   content: "";
   position: absolute;
@@ -28,9 +30,9 @@
   background-image: repeating-linear-gradient(
     -4deg,
     transparent 0 8px,
-    rgba(255, 255, 255, 0.45) 8px 12px
+    rgba(0, 0, 0, 0.015) 8px 12px
   );
-  opacity: 0.75;
+  opacity: 0.6;
   mask-image: radial-gradient(circle at top, black 0, black 55%, transparent 80%);
   pointer-events: none;
 }
@@ -45,3 +47,35 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Film strip border effect */
+.film-border {
+  position: relative;
+}
+
+.film-border::before,
+.film-border::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: repeating-linear-gradient(
+    90deg,
+    #1a1a1a 0,
+    #1a1a1a 8px,
+    transparent 8px,
+    transparent 12px
+  );
+}
+
+.film-border::before {
+  top: -12px;
+}
+
+.film-border::after {
+  bottom: -12px;
+}
+
+
+

@@ -27,7 +27,7 @@ export default function ScrollRevealSection({ id, className = "", children }) {
     <section id={id} className={`mt-20 ${className}`}>
       <div
         ref={ref}
-        className="section-frame reveal bg-paper rounded-paper shadow-soft border border-black/15 px-6 py-8 sm:px-8 sm:py-10"
+        className="section-frame reveal bg-[#fffdf7]/98 backdrop-blur-sm rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-amber-200/30 px-6 py-8 sm:px-8 sm:py-10"
       >
         {children}
       </div>
