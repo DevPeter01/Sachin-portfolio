@@ -1,25 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import ScrollRevealSection from "./ScrollRevealSection.jsx";
 
-// Import film posters
-import poster1 from "../../assets/fav-flim/poster.jpg";
-import poster2 from "../../assets/fav-flim/poster1.jpg";
-import poster3 from "../../assets/fav-flim/poster24.webp";
-import poster4 from "../../assets/fav-flim/poster3456.webp";
-import poster5 from "../../assets/fav-flim/terminal poster.webp";
-import poster6 from "../../assets/fav-flim/cap poster.avif";
-import poster7 from "../../assets/fav-flim/cars poster.webp";
-import poster8 from "../../assets/fav-flim/bf poster.avif";
-import poster9 from "../../assets/fav-flim/iraivi poster.webp";
-import poster10 from "../../assets/fav-flim/poster kkk.jpg";
-import poster11 from "../../assets/fav-flim/Cmoncmon1.jpg";
-import poster12 from "../../assets/fav-flim/wres poster4.jpg";
-
-const filmPosters = [
-  poster1, poster2, poster3, poster4, poster5, poster6,
-  poster7, poster8, poster9, poster10, poster11, poster12
-];
-
 const categories = [
   {
     id: "films",
@@ -55,46 +36,88 @@ const categories = [
   }
 ];
 
-// Auto-scrolling Film Carousel Component
+// Film posters using public folder path
+const filmPosters = [
+  "/posters/poster1.jpg",
+  "/posters/poster24.webp",
+  "/posters/poster3456.webp",
+  "/posters/terminal.webp",
+  "/posters/cars.webp",
+  "/posters/bf.avif",
+  "/posters/iraivi.webp"
+];
+
+// Auto-scrolling Film Carousel Component with Navigation
 function FilmCarousel() {
   const scrollRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const animationRef = useRef(null);
 
+  // Triple the posters for smooth infinite scroll
+  const allPosters = [...filmPosters, ...filmPosters, ...filmPosters];
+  const posterWidth = 208; // w-52 = 13rem = 208px + gap
+  const totalPosters = filmPosters.length;
+
+  // Auto-scroll effect
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
 
-    // Duplicate posters for infinite scroll effect
-    const totalWidth = scrollContainer.scrollWidth / 2;
-    let animationId;
-    let scrollPosition = 0;
-
     const autoScroll = () => {
       if (!isHovered) {
-        scrollPosition += 0.5; // Scroll speed
-        if (scrollPosition >= totalWidth) {
-          scrollPosition = 0;
-        }
-        scrollContainer.scrollLeft = scrollPosition;
+        setCurrentIndex(prev => {
+          const next = prev + 0.3;
+          if (next >= totalPosters) {
+            return 0;
+          }
+          return next;
+        });
       }
-      animationId = requestAnimationFrame(autoScroll);
+      animationRef.current = requestAnimationFrame(autoScroll);
     };
 
-    animationId = requestAnimationFrame(autoScroll);
+    animationRef.current = requestAnimationFrame(autoScroll);
 
     return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isHovered]);
+  }, [isHovered, totalPosters]);
 
-  // Triple the posters for smooth infinite scroll
-  const allPosters = [...filmPosters, ...filmPosters, ...filmPosters];
+  // Update scroll position when currentIndex changes
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (scrollContainer) {
+      scrollContainer.scrollLeft = currentIndex * posterWidth;
+    }
+  }, [currentIndex]);
+
+  // Navigation functions
+  const goToPrevious = () => {
+    setCurrentIndex(prev => {
+      const newIndex = prev - 3;
+      if (newIndex < 0) {
+        return totalPosters + newIndex;
+      }
+      return newIndex;
+    });
+  };
+
+  const goToNext = () => {
+    setCurrentIndex(prev => {
+      const newIndex = prev + 3;
+      if (newIndex >= totalPosters) {
+        return newIndex - totalPosters;
+      }
+      return newIndex;
+    });
+  };
 
   return (
     <div 
-      className="relative overflow-hidden"
+      className="relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -102,10 +125,32 @@ function FilmCarousel() {
       <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#fffaf3] to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#fffaf3] to-transparent z-10 pointer-events-none" />
 
+      {/* Previous Button */}
+      <button
+        onClick={goToPrevious}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        aria-label="Previous"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      {/* Next Button */}
+      <button
+        onClick={goToNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        aria-label="Next"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
       {/* Scrolling Container */}
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-hidden scrollbar-hide py-4"
+        className="flex gap-4 overflow-x-hidden py-4 px-8"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {allPosters.map((poster, index) => (
@@ -119,6 +164,22 @@ function FilmCarousel() {
               className="w-full h-full object-cover"
             />
           </div>
+        ))}
+      </div>
+
+      {/* Dot Indicators */}
+      <div className="flex justify-center gap-2 mt-2">
+        {filmPosters.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              Math.floor(currentIndex) === index 
+                ? 'bg-accentRed w-4' 
+                : 'bg-neutral-300 hover:bg-neutral-400'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
         ))}
       </div>
     </div>
