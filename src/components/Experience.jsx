@@ -6,12 +6,12 @@ const workCategories = [
     id: "direction",
     title: "Direction",
     color: "accentRed",
-    description: "As a director, I focus on visual storytelling that blends emotion, rhythm, and composition. My approach involves meticulous pre-production planning, from storyboarding to shot breakdowns, ensuring every frame serves the narrative.",
+    description: "Direction has always been my core interest. I still keep trying and figuring out my style, and these are some projects I've been working on recently, trying to learn passionately.",
     projects: [
       { 
         title: "Dialogue Project", 
         role: "Director",
-        note: "College studio work",
+        note: "LV Prasad Project",
         year: "2024",
         screenshots: 4
       },
@@ -26,13 +26,6 @@ const workCategories = [
         title: "Short Films - Lovegemini Film", 
         role: "Co-Director",
         note: "Festival circuit",
-        year: "2023",
-        screenshots: 4
-      },
-      { 
-        title: "LV Prasad Studio Project", 
-        role: "Director",
-        note: "Professional studio",
         year: "2023",
         screenshots: 4
       }

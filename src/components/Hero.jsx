@@ -34,15 +34,18 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="uppercase tracking-[0.18em] text-[11px] text-neutral-700 mb-4 font-medium">
+          <p className="uppercase tracking-[0.18em] text-[11px] text-amber-100 mb-4 font-medium">
             Film Direction Student · Visual Storytelling · Collaborator
           </p>
 
           <p className="text-sm max-w-xl mb-5 bg-amber-50 border border-dashed border-amber-300 rounded-[14px] px-4 py-3 text-neutral-700 leading-relaxed">
-            I'm a film direction student obsessed with the rhythm of images, emotions, and sound —
-            building stories that feel like they were ripped from a vivid, hand-made visual diary.
-            I thrive on colorful frames, bold compositions, and collaborative storytelling that turns
-            simple ideas into cinematic moments.
+            Hi, I am Sachin. Ever since I can remember, I have loved telling and listening to stories with the people around me.
+            <br /><br />
+            Films have always been something I love to watch any day, and they have a major influence on my beliefs, personality, and even my style.
+            <br /><br />
+            I consciously love being influenced by cinema.
+            <br /><br />
+            After schooling, I decided to explore this visual storytelling medium and find ways to tell my own stories.
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2 text-[13px]">
@@ -53,15 +56,15 @@ export default function Hero() {
               <ul className="space-y-1.5 text-neutral-800">
                 <li className="flex items-start gap-2">
                   <span className="text-amber-500 mt-1">▸</span>
-                  <span>Diploma in Film Direction — College Name</span>
+                  <span>BFA - Film Making (2023-2027)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-500 mt-1">▸</span>
-                  <span>Specialization in Cinematic Storytelling</span>
+                  <span>LV Prasad College of Media Studies</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-500 mt-1">▸</span>
-                  <span>Workshops in Studio & Location Filmmaking</span>
+                  <span>Chennai</span>
                 </li>
               </ul>
             </div>
