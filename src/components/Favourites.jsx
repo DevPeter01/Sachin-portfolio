@@ -18,6 +18,30 @@ import poster456 from "../../assets/fav-flim/poster456.webp";
 import poster568 from "../../assets/fav-flim/poster568.webp";
 import rb8 from "../../assets/fav-flim/rb 8 poster.webp";
 
+// Import filmmaker images from assets
+import tarantino from "../../assets/flim-makers/Quentin-Tarantino.jpeg";
+import myskin from "../../assets/flim-makers/myskin.jpeg";
+import mikeMiles from "../../assets/flim-makers/mike-miles.jpeg";
+import russoBrothers from "../../assets/flim-makers/russo-brothers.jpeg";
+import stevenSpielberg from "../../assets/flim-makers/steven-spelberg.jpeg";
+import taika from "../../assets/flim-makers/Taika-Waititi.jpeg";
+
+// Import book images from assets
+import inTheBlink from "../../assets/books/in_the_blink_of_an_eye.jpeg";
+import makingMovies from "../../assets/books/making-movies.jpeg";
+import metamorphosis from "../../assets/books/metamorphosis.jpeg";
+import susanSontag from "../../assets/books/susan-sontag-on-photography.jpeg";
+import thamarabarani from "../../assets/books/thamarabaraniyil-kollapadathavargal.jpeg";
+import theAlchemist from "../../assets/books/the-alchemist.jpeg";
+
+// Import anime images from assets
+import anime1 from "../../assets/fav-anime/WhatsApp Image 2026-02-23 at 20.12.05.jpeg";
+import anime2 from "../../assets/fav-anime/WhatsApp Image 2026-02-23 at 20.12.05 (1).jpeg";
+import anime3 from "../../assets/fav-anime/WhatsApp Image 2026-02-23 at 20.12.05 (2).jpeg";
+import anime4 from "../../assets/fav-anime/WhatsApp Image 2026-02-23 at 20.12.06.jpeg";
+import anime5 from "../../assets/fav-anime/WhatsApp Image 2026-02-23 at 20.12.06 (1).jpeg";
+import anime6 from "../../assets/fav-anime/WhatsApp Image 2026-02-23 at 20.12.06 (2).jpeg";
+
 const categories = [
   {
     id: "films",
@@ -25,30 +49,38 @@ const categories = [
   },
   {
     id: "books",
-    title: "Favourite Books",
+    title: "Books",
     items: [
-      { label: "Story – McKee", note: "Structure & arcs" },
-      { label: "Save The Cat!", note: "Beats & genre" },
-      { label: "On Film-making", note: "Craft & vision" }
+      { label: "In the Blink of an Eye", note: "Editing & Rhythm", image: inTheBlink },
+      { label: "Making Movies", note: "Director's Craft", image: makingMovies },
+      { label: "Metamorphosis", note: "Transformation & Identity", image: metamorphosis },
+      { label: "On Photography", note: "Visual Truth", image: susanSontag },
+      { label: "Thamarabaraniyil Kollapadathavargal", note: "Tamil Poetry", image: thamarabarani },
+      { label: "The Alchemist", note: "Journey & Dreams", image: theAlchemist }
     ]
   },
   {
     id: "anime",
     title: "Favourite Anime",
     items: [
-      { label: "Your Name", note: "Time & memory" },
-      { label: "Attack on Titan", note: "Scale & stakes" },
-      { label: "Spirited Away", note: "Magic & growth" }
+      { label: "Your Name", note: "Time & memory", image: anime1 },
+      { label: "Attack on Titan", note: "Scale & stakes", image: anime2 },
+      { label: "Spirited Away", note: "Magic & growth", image: anime3 },
+      { label: "Demon Slayer", note: "Family & honor", image: anime4 },
+      { label: "Naruto", note: "Dreams & bonds", image: anime5 },
+      { label: "Death Note", note: "Justice & morality", image: anime6 }
     ]
   },
   {
     id: "filmmakers",
     title: "Favourite Filmmakers",
     items: [
-      { label: "Quentin Tarantino", note: "Dialogue & violence", works: "Pulp Fiction, Kill Bill" },
-      { label: "Christopher Nolan", note: "Time & complexity", works: "Inception, Interstellar" },
-      { label: "Martin Scorsese", note: "Grit & character", works: "Goodfellas, Taxi Driver" },
-      { label: "Gautham Vasudev Menon", note: "Romance & style", works: "Vinnaithaandi Varuvaayaa" }
+      { label: "Quentin Tarantino", note: "Dialogue & violence", works: "Pulp Fiction, Kill Bill", image: tarantino },
+      { label: "Mysskin", note: "Dark & poetic", works: "Pisaasu, Onaayum Aattukkuttiyum", image: myskin },
+      { label: "Mike Miles", note: "Animation & heart", works: "Spider-Verse Series", image: mikeMiles },
+      { label: "Russo Brothers", note: "Scale & spectacle", works: "Avengers, The Gray Man", image: russoBrothers },
+      { label: "Steven Spielberg", note: "Wonder & adventure", works: "Jurassic Park, E.T.", image: stevenSpielberg },
+      { label: "Taika Waititi", note: "Comedy & chaos", works: "Thor: Ragnarok, Jojo Rabbit", image: taika }
     ]
   }
 ];
@@ -212,6 +244,485 @@ function FilmCarousel() {
   );
 }
 
+// Auto-scrolling Filmmaker Carousel Component with Navigation
+function FilmmakerCarousel({ items }) {
+  const scrollRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const animationRef = useRef(null);
+
+  // Triple the items for smooth infinite scroll
+  const allItems = [...items, ...items, ...items];
+  const itemWidth = 208; // w-52 = 13rem = 208px + gap
+  const totalItems = items.length;
+
+  // Auto-scroll effect
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const autoScroll = () => {
+      if (!isHovered) {
+        setCurrentIndex(prev => {
+          const next = prev + 0.008; // Scroll speed (very slow)
+          if (next >= totalItems) {
+            return 0;
+          }
+          return next;
+        });
+      }
+      animationRef.current = requestAnimationFrame(autoScroll);
+    };
+
+    animationRef.current = requestAnimationFrame(autoScroll);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isHovered, totalItems]);
+
+  // Update scroll position when currentIndex changes
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (scrollContainer) {
+      scrollContainer.scrollLeft = currentIndex * itemWidth;
+    }
+  }, [currentIndex, itemWidth]);
+
+  // Navigation functions
+  const goToPrevious = () => {
+    setCurrentIndex(prev => {
+      const newIndex = prev - 1;
+      if (newIndex < 0) {
+        return totalItems + newIndex;
+      }
+      return newIndex;
+    });
+  };
+
+  const goToNext = () => {
+    setCurrentIndex(prev => {
+      const newIndex = prev + 1;
+      if (newIndex >= totalItems) {
+        return newIndex - totalItems;
+      }
+      return newIndex;
+    });
+  };
+
+  return (
+    <div 
+      className="relative"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Gradient Overlays for fade effect - dark theme */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#1a1410] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#1a1410] to-transparent z-10 pointer-events-none" />
+
+      {/* Previous Button */}
+      <button
+        onClick={goToPrevious}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        aria-label="Previous"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      {/* Next Button */}
+      <button
+        onClick={goToNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        aria-label="Next"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      {/* Scrolling Container */}
+      <div
+        ref={scrollRef}
+        className="flex gap-4 overflow-x-hidden py-4 px-8"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {allItems.map((item, index) => (
+          <div
+            key={index}
+            className="relative flex-shrink-0 w-36 sm:w-44 md:w-52 aspect-[3/4] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-amber-500/30"
+          >
+            {/* Filmmaker Image */}
+            <img 
+              src={item.image} 
+              alt={item.label}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            
+            {/* Gradient overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            
+            {/* Category badge */}
+            <div className="absolute top-3 left-3 z-10">
+              <span className="text-[8px] uppercase tracking-[0.14em] bg-accentRed text-white px-2 py-1 rounded-full">
+                Director
+              </span>
+            </div>
+
+            {/* Content */}
+            <div className="absolute bottom-0 left-0 right-0 p-3">
+              <div className="text-[12px] uppercase tracking-[0.12em] font-semibold mb-1 text-amber-100">
+                {item.label}
+              </div>
+              <div className="text-[9px] text-amber-200/70 mb-1">{item.note}</div>
+              {item.works && (
+                <div className="text-[8px] text-amber-300/60 italic line-clamp-1">
+                  {item.works}
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Dot Indicators */}
+      <div className="flex justify-center gap-2 mt-2">
+        {items.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              Math.floor(currentIndex) === index 
+                ? 'bg-accentRed w-4' 
+                : 'bg-amber-500/40 hover:bg-amber-500/60'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Auto-scrolling Books Carousel Component with Navigation
+function BooksCarousel({ items }) {
+  const scrollRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const animationRef = useRef(null);
+
+  // Triple the items for smooth infinite scroll
+  const allItems = [...items, ...items, ...items];
+  const itemWidth = 208; // w-52 = 13rem = 208px + gap
+  const totalItems = items.length;
+
+  // Auto-scroll effect
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const autoScroll = () => {
+      if (!isHovered) {
+        setCurrentIndex(prev => {
+          const next = prev + 0.008; // Scroll speed (very slow)
+          if (next >= totalItems) {
+            return 0;
+          }
+          return next;
+        });
+      }
+      animationRef.current = requestAnimationFrame(autoScroll);
+    };
+
+    animationRef.current = requestAnimationFrame(autoScroll);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isHovered, totalItems]);
+
+  // Update scroll position when currentIndex changes
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (scrollContainer) {
+      scrollContainer.scrollLeft = currentIndex * itemWidth;
+    }
+  }, [currentIndex, itemWidth]);
+
+  // Navigation functions
+  const goToPrevious = () => {
+    setCurrentIndex(prev => {
+      const newIndex = prev - 1;
+      if (newIndex < 0) {
+        return totalItems + newIndex;
+      }
+      return newIndex;
+    });
+  };
+
+  const goToNext = () => {
+    setCurrentIndex(prev => {
+      const newIndex = prev + 1;
+      if (newIndex >= totalItems) {
+        return newIndex - totalItems;
+      }
+      return newIndex;
+    });
+  };
+
+  return (
+    <div 
+      className="relative"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Gradient Overlays for fade effect - dark theme */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#1a1410] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#1a1410] to-transparent z-10 pointer-events-none" />
+
+      {/* Previous Button */}
+      <button
+        onClick={goToPrevious}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        aria-label="Previous"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      {/* Next Button */}
+      <button
+        onClick={goToNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        aria-label="Next"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      {/* Scrolling Container */}
+      <div
+        ref={scrollRef}
+        className="flex gap-4 overflow-x-hidden py-4 px-8"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {allItems.map((item, index) => (
+          <div
+            key={index}
+            className="relative flex-shrink-0 w-36 sm:w-44 md:w-52 aspect-[2/3] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-amber-500/30"
+          >
+            {/* Book Image */}
+            <img 
+              src={item.image} 
+              alt={item.label}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            
+            {/* Gradient overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            
+            {/* Category badge */}
+            <div className="absolute top-3 left-3 z-10">
+              <span className="text-[8px] uppercase tracking-[0.14em] bg-accentRed text-white px-2 py-1 rounded-full">
+                Book
+              </span>
+            </div>
+
+            {/* Content */}
+            <div className="absolute bottom-0 left-0 right-0 p-3">
+              <div className="text-[11px] uppercase tracking-[0.12em] font-semibold mb-1 text-amber-100 line-clamp-2">
+                {item.label}
+              </div>
+              <div className="text-[9px] text-amber-200/70">{item.note}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Dot Indicators */}
+      <div className="flex justify-center gap-2 mt-2">
+        {items.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              Math.floor(currentIndex) === index 
+                ? 'bg-accentRed w-4' 
+                : 'bg-amber-500/40 hover:bg-amber-500/60'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Auto-scrolling Anime Carousel Component with Navigation
+function AnimeCarousel({ items }) {
+  const scrollRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const animationRef = useRef(null);
+
+  // Triple the items for smooth infinite scroll
+  const allItems = [...items, ...items, ...items];
+  const itemWidth = 208; // w-52 = 13rem = 208px + gap
+  const totalItems = items.length;
+
+  // Auto-scroll effect
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const autoScroll = () => {
+      if (!isHovered) {
+        setCurrentIndex(prev => {
+          const next = prev + 0.008; // Scroll speed (very slow)
+          if (next >= totalItems) {
+            return 0;
+          }
+          return next;
+        });
+      }
+      animationRef.current = requestAnimationFrame(autoScroll);
+    };
+
+    animationRef.current = requestAnimationFrame(autoScroll);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isHovered, totalItems]);
+
+  // Update scroll position when currentIndex changes
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (scrollContainer) {
+      scrollContainer.scrollLeft = currentIndex * itemWidth;
+    }
+  }, [currentIndex, itemWidth]);
+
+  // Navigation functions
+  const goToPrevious = () => {
+    setCurrentIndex(prev => {
+      const newIndex = prev - 1;
+      if (newIndex < 0) {
+        return totalItems + newIndex;
+      }
+      return newIndex;
+    });
+  };
+
+  const goToNext = () => {
+    setCurrentIndex(prev => {
+      const newIndex = prev + 1;
+      if (newIndex >= totalItems) {
+        return newIndex - totalItems;
+      }
+      return newIndex;
+    });
+  };
+
+  return (
+    <div 
+      className="relative"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Gradient Overlays for fade effect - dark theme */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#1a1410] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#1a1410] to-transparent z-10 pointer-events-none" />
+
+      {/* Previous Button */}
+      <button
+        onClick={goToPrevious}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        aria-label="Previous"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      {/* Next Button */}
+      <button
+        onClick={goToNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        aria-label="Next"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      {/* Scrolling Container */}
+      <div
+        ref={scrollRef}
+        className="flex gap-4 overflow-x-hidden py-4 px-8"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {allItems.map((item, index) => (
+          <div
+            key={index}
+            className="relative flex-shrink-0 w-36 sm:w-44 md:w-52 aspect-[2/3] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-amber-500/30"
+          >
+            {/* Anime Image */}
+            <img 
+              src={item.image} 
+              alt={item.label}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            
+            {/* Gradient overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            
+            {/* Category badge */}
+            <div className="absolute top-3 left-3 z-10">
+              <span className="text-[8px] uppercase tracking-[0.14em] bg-accentRed text-white px-2 py-1 rounded-full">
+                Anime
+              </span>
+            </div>
+
+            {/* Content */}
+            <div className="absolute bottom-0 left-0 right-0 p-3">
+              <div className="text-[11px] uppercase tracking-[0.12em] font-semibold mb-1 text-amber-100">
+                {item.label}
+              </div>
+              <div className="text-[9px] text-amber-200/70">{item.note}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Dot Indicators */}
+      <div className="flex justify-center gap-2 mt-2">
+        {items.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              Math.floor(currentIndex) === index 
+                ? 'bg-accentRed w-4' 
+                : 'bg-amber-500/40 hover:bg-amber-500/60'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Favourites() {
   const [activeCategory, setActiveCategory] = useState("films");
 
@@ -273,6 +784,15 @@ export default function Favourites() {
             {/* Films - Auto-scrolling Carousel */}
             {activeCategory === "films" ? (
               <FilmCarousel />
+            ) : activeCategory === "filmmakers" ? (
+              /* Filmmakers - Auto-scrolling Carousel */
+              <FilmmakerCarousel items={activeData?.items || []} />
+            ) : activeCategory === "books" ? (
+              /* Books - Auto-scrolling Carousel */
+              <BooksCarousel items={activeData?.items || []} />
+            ) : activeCategory === "anime" ? (
+              /* Anime - Auto-scrolling Carousel */
+              <AnimeCarousel items={activeData?.items || []} />
             ) : (
               /* Other Categories - Grid Layout */
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -289,7 +809,7 @@ export default function Favourites() {
                     {/* Category badge */}
                     <div className="absolute top-3 left-3 z-10">
                       <span className="text-[8px] uppercase tracking-[0.14em] bg-accentRed text-white px-2 py-1 rounded-full">
-                        {activeData.id === "filmmakers" ? "Director" : activeData.id.slice(0, -1)}
+                        {activeData.id.slice(0, -1)}
                       </span>
                     </div>
 
@@ -299,11 +819,6 @@ export default function Favourites() {
                         {item.label}
                       </div>
                       <div className="text-[9px] text-amber-200/60 mb-1">{item.note}</div>
-                      {item.works && (
-                        <div className="text-[8px] text-amber-300/50 italic">
-                          {item.works}
-                        </div>
-                      )}
                     </div>
                   </div>
                 ))}

@@ -4,9 +4,9 @@ const skills = [
   { name: "DaVinci Resolve", level: 88, note: "Color · Edit · Grade" },
   { name: "Adobe Premiere Pro", level: 82, note: "Narrative & Reels" },
   { name: "Adobe Photoshop", level: 78, note: "Posters & Frames" },
-  { name: "Adobe Lightroom", level: 75, note: "Look & Mood" },
+  { name: "Adobe Lightroom", level: 100, note: "Look & Mood" },
   { name: "Final Cut Pro", level: 70, note: "Mac-based Editing" },
-  { name: "Arch Studio", level: 68, note: "Set & Space Visuals" },
+  { name: "Arc Studio", level: 100, note: "Set & Space Visuals" },
   { name: "Pro Tools", level: 65, note: "Basic Audio & Mix" }
 ];
 
@@ -78,9 +78,6 @@ export default function SoftwareSkills() {
         {/* Content */}
         <div className="relative z-10">
           <header className="flex flex-wrap items-baseline gap-3 mb-6">
-            <span className="uppercase tracking-[0.18em] text-[10px] text-amber-200/70 bg-black/40 px-3 py-1.5 rounded-full border border-dashed border-amber-500/30">
-              Tools Of The Timeline
-            </span>
             <h2 className="font-display text-[17px] uppercase tracking-[0.24em] bg-gradient-to-r from-[#2a2218] to-[#3d3020] px-4 py-1.5 rounded-full shadow-[0_8px_0_rgba(255,75,75,0.3)] border border-amber-700/40">
               <span className="text-accentRed">Software</span> <span className="text-amber-100">Skills</span>
             </h2>

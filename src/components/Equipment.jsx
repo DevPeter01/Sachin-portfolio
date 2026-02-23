@@ -58,10 +58,6 @@ export default function Equipment() {
                 <div className="text-[11px] uppercase tracking-[0.16em] text-amber-200/60">
                   Primary Camera · Full Frame
                 </div>
-                <p className="text-[12px] text-amber-100/70">
-                  Used for narrative shorts, location scouts, and visual experiments —
-                  giving me cinematic depth and flexibility in both natural and controlled light.
-                </p>
               </div>
             </article>
 
@@ -83,10 +79,6 @@ export default function Equipment() {
                 <div className="text-[11px] uppercase tracking-[0.16em] text-amber-200/60">
                   Editing & Sound Workstation
                 </div>
-                <p className="text-[12px] text-amber-100/70">
-                  My main post-production base for editing, color and sound, keeping projects fast,
-                  responsive, and ready for both student screenings and online releases.
-                </p>
               </div>
             </article>
           </div>
