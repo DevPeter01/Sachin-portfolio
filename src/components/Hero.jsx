@@ -7,13 +7,13 @@ export default function Hero() {
     <ScrollRevealSection id="intro" className="mt-10">
       <div className="grid gap-8 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.6fr)] items-center relative">
         {/* Left: photo frame */}
-        <div className="relative px-4">
-          <div className="relative rounded-[26px] p-2 bg-white shadow-soft -rotate-2 overflow-hidden border-4 border-sky-400">
-            <div className="w-full aspect-[4/5] rounded-[20px] overflow-hidden">
+        <div className="relative px-4 z-20">
+          <div className="relative rounded-[26px] p-2 bg-white shadow-soft -rotate-2 overflow-hidden border-4 border-sky-400 z-20">
+            <div className="w-full aspect-[4/5] rounded-[20px] overflow-hidden bg-white relative z-20">
               <img 
                 src={profileImage} 
                 alt="Sachin R B" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover relative z-20"
               />
             </div>
           </div>
