@@ -5,40 +5,44 @@ import SoftwareSkills from "./components/SoftwareSkills.jsx";
 import Favourites from "./components/Favourites.jsx";
 import Equipment from "./components/Equipment.jsx";
 import ContactFooter from "./components/ContactFooter.jsx";
-import BackgroundOcean from "./components/BackgroundOcean.jsx";
+import CinematicBackground from "./components/CinematicBackground.jsx";
 
 export default function App() {
   return (
-    <div className="font-body text-neutral-100 relative min-h-screen bg-[#0a192f]">
-      {/* Animated Ocean Background */}
-      <BackgroundOcean />
-      
-      {/* Sticky top nav - Ocean Glass style */}
-      <header className="sticky top-0 z-40 bg-[#0a192f]/60 backdrop-blur-md border-b border-[#00BBF9]/20">
-        <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em]">
-            <span className="font-display bg-gradient-to-r from-[#00F5D4] to-[#00BBF9] text-[#0a192f] px-3 py-1.5 rounded font-bold shadow-[0_0_15px_rgba(0,245,212,0.4)]">OCEAN</span>
-            <span className="text-[#00F5D4] font-bold">Portfolio</span>
-          </div>
-          <nav className="hidden sm:flex flex-wrap gap-1 text-[10px] uppercase tracking-[0.12em]">
-            <a href="#intro" className="px-3 py-2 rounded-full text-white/50 hover:text-[#00F5D4] hover:bg-[#00F5D4]/10 transition-all duration-200">Intro</a>
-            <a href="#experience" className="px-3 py-2 rounded-full text-white/50 hover:text-[#00F5D4] hover:bg-[#00F5D4]/10 transition-all duration-200">Work</a>
-            <a href="#software" className="px-3 py-2 rounded-full text-white/50 hover:text-[#00F5D4] hover:bg-[#00F5D4]/10 transition-all duration-200">Software</a>
-            <a href="#favourites" className="px-3 py-2 rounded-full text-white/50 hover:text-[#00F5D4] hover:bg-[#00F5D4]/10 transition-all duration-200">Favourites</a>
-            <a href="#equipment" className="px-3 py-2 rounded-full text-white/50 hover:text-[#00F5D4] hover:bg-[#00F5D4]/10 transition-all duration-200">Equipment</a>
-            <a href="#contact" className="px-3 py-2 rounded-full text-white/50 hover:text-[#00F5D4] hover:bg-[#00F5D4]/10 transition-all duration-200">Contact</a>
-          </nav>
-        </div>
-      </header>
+    <div className="font-body text-neutral-900 relative h-screen w-screen overflow-hidden">
+      {/* Cinematic Background Layer */}
+      <CinematicBackground />
 
-      <main className="max-w-5xl mx-auto px-4 pb-24 pt-6 relative z-10">
-        <Hero />
-        <Experience />
-        <SoftwareSkills />
-        <Favourites />
-        <Equipment />
-        <ContactFooter />
-      </main>
+      {/* CENTER CONTENT STAGE (FOCUS AREA) */}
+      <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[94vw] max-w-6xl h-[95vh] glass-stage overflow-y-auto z-20 animate-stage-in">
+        
+        {/* Navigation - Fixed inside the stage */}
+        <header className="sticky top-0 z-40 bg-black/40 backdrop-blur-xl border-b border-white/5">
+          <div className="w-full mx-auto px-4 md:px-6 py-3 flex items-center justify-between gap-3">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em]">
+              <span className="font-display bg-white text-black px-3 py-1.5 rounded font-bold shadow-lg">REEL</span>
+              <span className="text-white/60 font-light hidden sm:inline">Sachin Portfolio</span>
+            </div>
+            <nav className="flex flex-wrap gap-1 text-[9px] md:text-[10px] uppercase tracking-[0.16em]">
+              <a href="#intro" className="px-3 py-2 rounded-full text-white/50 hover:text-white transition-colors">Intro</a>
+              <a href="#experience" className="px-3 py-2 rounded-full text-white/50 hover:text-white transition-colors">Work</a>
+              <a href="#software" className="px-3 py-2 rounded-full text-white/50 hover:text-white transition-colors">Software</a>
+              <a href="#favourites" className="px-3 py-2 rounded-full text-white/50 hover:text-white transition-colors">Favourites</a>
+              <a href="#contact" className="px-4 py-2 rounded-full bg-white text-black font-bold hover:scale-105 transition-transform">Contact</a>
+            </nav>
+          </div>
+        </header>
+
+        {/* Content Flow */}
+        <main className="w-full mx-auto px-2 md:px-4 pt-6 pb-20 relative z-10">
+          <Hero />
+          <Experience />
+          <SoftwareSkills />
+          <Favourites />
+          <Equipment />
+          <ContactFooter />
+        </main>
+      </div>
     </div>
   );
 }

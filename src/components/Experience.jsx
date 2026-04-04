@@ -5,7 +5,7 @@ const workCategories = [
   {
     id: "direction",
     title: "Direction",
-    color: "#00BBF9", // Ocean Blue
+    color: "accentRed",
     description: "Direction has always been my core interest. I still keep trying and figuring out my style, and these are some projects I've been working on recently, trying to learn passionately.",
     projects: [
       {
@@ -27,7 +27,7 @@ const workCategories = [
   {
     id: "editing",
     title: "Editing",
-    color: "#00F5D4", // Aqua
+    color: "accentBlue",
     description: "Editing is where stories find their heartbeat. I approach each cut with intention, focusing on emotional continuity and narrative flow using DaVinci Resolve and Premiere Pro.",
     whyILove: `After directing, I usually edit my own projects and the videos I shoot. Over time, I’ve developed a deep love for editing—I can spend hours completely immersed in it without even noticing the time. For me, editing is one of the most important aspects of visual storytelling, as it shapes the rhythm, emotion, and impact of a narrative. I constantly watch great works to learn from them, and I enjoy experimenting with different styles and techniques to improve my craft.`,
     workExperience: [
@@ -44,7 +44,7 @@ const workCategories = [
   {
     id: "sound",
     title: "Sound",
-    color: "#5F0FFF", // Electric Purple
+    color: "accentTeal",
     description: "Sound design transforms good films into unforgettable experiences. I approach audio as a storytelling layer that operates alongside the visual narrative.",
     skills: [
       {
@@ -86,7 +86,7 @@ const workCategories = [
   {
     id: "photography",
     title: "Photography",
-    color: "#FF7A00", // Coral
+    color: "accentYellow",
     description: "Photography is my way of studying light and composition — essential tools for any filmmaker. Each photograph teaches me something new about framing and visual rhythm.",
     whyPhotography: `I love capturing the beautiful moments around me. It feels like I’m freezing those moments in time and sharing them for others to see and feel. I take pictures of the people I love, the places I travel to, and moments from events—big or small. Photography gives me a sense of joy I’ve truly felt, and it’s a feeling I always want to experience again and again.`,
     works: [
@@ -129,20 +129,20 @@ const workCategories = [
 
 const colorClasses = {
   accentRed: {
-    tab: "bg-accentRed text-white border-accentRed",
-    badge: "bg-accentRed text-white"
+    tab: "bg-[#D14538] text-white border-[#D14538]",
+    badge: "bg-[#D14538] text-white"
   },
   accentBlue: {
-    tab: "bg-accentBlue text-white border-accentBlue",
-    badge: "bg-accentBlue text-white"
+    tab: "bg-[#336699] text-white border-[#336699]",
+    badge: "bg-[#336699] text-white"
   },
   accentTeal: {
-    tab: "bg-accentTeal text-black border-accentTeal",
-    badge: "bg-accentTeal text-black"
+    tab: "bg-[#2A8080] text-white border-[#2A8080]",
+    badge: "bg-[#2A8080] text-white"
   },
   accentYellow: {
-    tab: "bg-accentYellow text-black border-accentYellow",
-    badge: "bg-accentYellow text-black"
+    tab: "bg-[#D4A373] text-black border-[#D4A373]",
+    badge: "bg-[#D4A373] text-black"
   }
 };
 
@@ -226,27 +226,27 @@ function SoundModal({ data, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-md"
       onClick={onClose}
     >
       <div
-        className="ocean-glass-dark rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden border border-[#00BBF9]/30 relative animate-fade-slide"
+        className="bg-gradient-to-br from-[#F5E6D3] to-[#EADBC8] rounded-[12px] shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden border border-black/10 relative film-grain-warm cinematic-vignette light-leak-warm animate-fade-slide"
         onClick={e => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/5 backdrop-blur-sm">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-black/5 bg-white/20 backdrop-blur-sm">
           <div className="flex items-center gap-3">
-            <span className="font-display text-[15px] uppercase tracking-[0.2em] px-5 py-2.5 rounded-sm bg-gradient-to-r from-[#5F0FFF] to-[#00BBF9] text-white shadow-[0_0_15px_rgba(95,15,255,0.4)] border border-[#5F0FFF]/40 hover:scale-105 transition-all duration-300 cursor-default">
+            <span className="font-display text-[15px] uppercase tracking-[0.2em] px-5 py-2.5 rounded-full coral-gradient text-white border-glow-red hover:scale-105 transition-transform duration-300 cursor-default">
               Sound
             </span>
-            <span className="text-[12px] uppercase tracking-[0.18em] text-[#00BBF9] font-bold">
+            <span className="text-[12px] uppercase tracking-[0.18em] text-[#6B5E57] font-medium">
               Skills & Expertise
             </span>
           </div>
           <button
             type="button"
             onClick={handleClose}
-            className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-[#00F5D4] hover:text-[#0a192f] hover:border-[#00F5D4] transition-all duration-300 text-xl font-light z-10 cursor-pointer"
+            className="w-9 h-9 rounded-full border border-black/20 flex items-center justify-center hover:bg-[#E94E3D] hover:text-white hover:border-[#E94E3D] transition-all duration-300 text-xl font-light z-10 cursor-pointer"
           >
             ×
           </button>
@@ -333,27 +333,27 @@ function PhotographyModal({ data, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-md"
       onClick={onClose}
     >
       <div
-        className="ocean-glass-dark rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden border border-[#00BBF9]/30 relative animate-fade-slide"
+        className="bg-gradient-to-br from-[#F5E6D3] to-[#EADBC8] rounded-[12px] shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden border border-black/10 relative film-grain-warm cinematic-vignette light-leak-warm animate-fade-slide"
         onClick={e => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/5 backdrop-blur-sm">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-black/5 bg-white/20 backdrop-blur-sm">
           <div className="flex items-center gap-3">
-            <span className="font-display text-[15px] uppercase tracking-[0.2em] px-5 py-2.5 rounded-sm bg-gradient-to-r from-[#FF7A00] to-[#E94E3D] text-white shadow-[0_0_15px_rgba(255,122,0,0.4)] border border-[#FF7A00]/40 hover:scale-105 transition-all duration-300 cursor-default">
+            <span className="font-display text-[15px] uppercase tracking-[0.2em] px-5 py-2.5 rounded-full coral-gradient text-white border-glow-red hover:scale-105 transition-transform duration-300 cursor-default">
               Photography
             </span>
-            <span className="text-[12px] uppercase tracking-[0.18em] text-[#FF7A00] font-bold">
+            <span className="text-[12px] uppercase tracking-[0.18em] text-[#6B5E57] font-medium">
               Visual Stories
             </span>
           </div>
           <button
             type="button"
             onClick={handleClose}
-            className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-[#FF7A00] hover:text-white hover:border-[#FF7A00] transition-all duration-300 text-xl font-light z-10 cursor-pointer"
+            className="w-9 h-9 rounded-full border border-black/20 flex items-center justify-center hover:bg-[#E94E3D] hover:text-white hover:border-[#E94E3D] transition-all duration-300 text-xl font-light z-10 cursor-pointer"
           >
             ×
           </button>
@@ -364,13 +364,13 @@ function PhotographyModal({ data, onClose }) {
           {/* Why Photography - Two Column Layout */}
           <div className="grid md:grid-cols-[1fr_1fr] gap-6">
             {/* Left: Why Photography */}
-            <div className="ocean-glass rounded-[16px] p-6 border-l-4 border-l-[#FF7A00]">
-              <h3 className="font-display text-[14px] uppercase tracking-[0.25em] mb-4 text-[#FF7A00] font-bold">
+            <div className="glass-card-warm paper-texture rounded-[16px] p-6 border-l-4 border-l-[#E94E3D]">
+              <h3 className="font-display text-[14px] uppercase tracking-[0.25em] mb-4 text-[#D4A373] font-bold">
                 Why Photography
               </h3>
               <div className="space-y-3">
                 {data.whyPhotography.split('\n\n').map((para, idx) => (
-                  <p key={idx} className="text-[16px] leading-relaxed text-blue-50 italic font-medium">
+                  <p key={idx} className="text-[16px] leading-relaxed text-[#2B2B2B] italic font-medium">
                     {para}
                   </p>
                 ))}
@@ -378,17 +378,17 @@ function PhotographyModal({ data, onClose }) {
             </div>
 
             {/* Right: Some of My Works */}
-            <div className="bg-white/5 backdrop-blur-md rounded-[16px] p-6 border border-white/10">
-              <h3 className="font-display text-[14px] uppercase tracking-[0.25em] mb-4 text-[#00F5D4] font-bold">
+            <div className="bg-white/30 backdrop-blur-md rounded-[16px] p-6 border border-black/5">
+              <h3 className="font-display text-[14px] uppercase tracking-[0.25em] mb-4 text-[#E94E3D] font-bold">
                 Some of My Works
               </h3>
               <ul className="space-y-3">
                 {data.works.map((work, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-[14px] text-blue-100/60">
-                    <span className="text-[#00BBF9] mt-1.5 text-[11px]">●</span>
+                  <li key={idx} className="flex items-start gap-3 text-[14px] text-[#6B5E57]">
+                    <span className="text-[#D4A373] mt-1.5 text-[11px]">●</span>
                     <div>
-                      <span className="font-bold text-white">{work.title}</span>
-                      <span className="text-[12px] text-blue-200/40 ml-2 font-medium">— {work.note}</span>
+                      <span className="font-bold text-[#2B2B2B]">{work.title}</span>
+                      <span className="text-[12px] text-[#6B5E57] ml-2 font-medium">— {work.note}</span>
                     </div>
                   </li>
                 ))}
@@ -486,27 +486,27 @@ function EditingModal({ data, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-md"
       onClick={onClose}
     >
       <div
-        className="ocean-glass-dark rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden border border-[#00BBF9]/30 relative animate-fade-slide"
+        className="bg-gradient-to-br from-[#F5E6D3] to-[#EADBC8] rounded-[12px] shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden border border-black/10 relative film-grain-warm cinematic-vignette light-leak-warm animate-fade-slide"
         onClick={e => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/5 backdrop-blur-sm">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-black/5 bg-white/20 backdrop-blur-sm">
           <div className="flex items-center gap-3">
-            <span className="font-display text-[15px] uppercase tracking-[0.2em] px-5 py-2.5 rounded-sm bg-gradient-to-r from-[#00F5D4] to-[#00BBF9] text-[#0a192f] shadow-[0_0_15px_rgba(0,245,212,0.4)] border border-[#00F5D4]/40 hover:scale-105 transition-all duration-300 cursor-default">
+            <span className="font-display text-[15px] uppercase tracking-[0.2em] px-5 py-2.5 rounded-full coral-gradient text-white border-glow-red hover:scale-105 transition-transform duration-300 cursor-default">
               Editing
             </span>
-            <span className="text-[12px] uppercase tracking-[0.18em] text-[#00F5D4] font-bold hidden sm:block">
+            <span className="text-[12px] uppercase tracking-[0.18em] text-[#6B5E57] font-medium hidden sm:block">
               Work Experience & Skills
             </span>
           </div>
           <button
             type="button"
             onClick={handleClose}
-            className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-[#00F5D4] hover:text-[#0a192f] hover:border-[#00F5D4] transition-all duration-300 text-xl font-light z-10 cursor-pointer"
+            className="w-9 h-9 rounded-full border border-black/20 flex items-center justify-center hover:bg-[#E94E3D] hover:text-white hover:border-[#E94E3D] transition-all duration-300 text-xl font-light z-10 cursor-pointer"
           >
             ×
           </button>
@@ -609,24 +609,24 @@ function ProjectModal({ project, category, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className="ocean-glass-dark rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden border border-[#00BBF9]/30 relative"
+        className="bg-[#fffdf7] rounded-[24px] shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden border-2 border-black/20 relative"
         onClick={e => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-gradient-to-r from-[#00F5D4]/20 to-[#00BBF9]/20">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-black/10 bg-gradient-to-r from-[#fff0cc] to-[#ffe4d5]">
           <div className="flex items-center gap-3">
-            <span className={`font-display text-[12px] uppercase tracking-[0.18em] px-4 py-2 rounded-sm bg-blue-500/20 text-blue-300 border border-blue-500/30`}>
+            <span className={`font-display text-[14px] uppercase tracking-[0.18em] px-4 py-2 rounded-full ${colorClass.badge}`}>
               {project.role}
             </span>
             <div>
-              <h3 className="text-[14px] uppercase tracking-[0.14em] font-bold text-white">
+              <h3 className="text-[14px] uppercase tracking-[0.14em] font-semibold">
                 {project.title}
               </h3>
-              <p className="text-[10px] uppercase tracking-[0.16em] text-blue-400 font-bold">
+              <p className="text-[10px] uppercase tracking-[0.16em] text-neutral-500">
                 {project.note} · {project.year}
               </p>
             </div>
@@ -634,7 +634,7 @@ function ProjectModal({ project, category, onClose }) {
           <button
             type="button"
             onClick={handleClose}
-            className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-[#00F5D4] hover:text-[#0a192f] transition-all duration-200 text-xl font-bold z-10 cursor-pointer"
+            className="w-10 h-10 rounded-full border-2 border-black/30 flex items-center justify-center hover:bg-[#D14538] hover:text-white hover:border-[#D14538] transition-all duration-200 text-xl font-bold z-10 cursor-pointer"
           >
             ×
           </button>
@@ -644,7 +644,7 @@ function ProjectModal({ project, category, onClose }) {
         <div className="grid md:grid-cols-[1fr_1.4fr] divide-x divide-black/10">
           {/* Left: Description */}
           <div className="p-6 bg-gradient-to-br from-[#fffaf3] to-[#fff5de]">
-            <h3 className="font-display text-[14px] uppercase tracking-[0.18em] mb-4 text-accentRed">
+            <h3 className="font-display text-[14px] uppercase tracking-[0.18em] mb-4 text-[#D14538]">
               About This Project
             </h3>
             <p className="text-[13px] leading-relaxed text-neutral-700 mb-4">
@@ -724,7 +724,7 @@ function ProjectModal({ project, category, onClose }) {
           <button
             type="button"
             onClick={handleClose}
-            className="text-[11px] uppercase tracking-[0.14em] bg-black text-white px-5 py-2 rounded-full hover:bg-accentRed transition-colors cursor-pointer"
+            className="text-[11px] uppercase tracking-[0.14em] bg-black text-white px-5 py-2 rounded-full hover:bg-[#D14538] transition-colors cursor-pointer"
           >
             Close
           </button>
@@ -743,140 +743,144 @@ export default function Experience() {
 
   // Teaser Components for Editing, Sound, and Photography
   const EditingTeaser = () => (
-    <div className="w-full ocean-glass rounded-2xl p-6 mb-8 border border-[#00BBF9]/20 shadow-2xl relative overflow-hidden group hover:shadow-[#00F5D4]/10 transition-all duration-500">
+    <div className="w-full glass-card-warm paper-texture rounded-2xl p-2 mb-8 border border-white/20 shadow-2xl relative overflow-hidden group hover:shadow-accentBlue/20 transition-all duration-500">
       <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
         {/* Timeline Reel Mockup */}
-        <div className="w-full md:w-3/5 bg-black/60 rounded-lg p-2 border-2 border-[#00BBF9]/30 relative overflow-hidden aspect-[21/9] shadow-inner">
-          <div className="absolute top-0 left-0 right-0 h-6 bg-neutral-900 border-b border-white/5 flex items-center px-4 gap-2">
-            <div className="w-2 h-2 rounded-full bg-[#00F5D4]" />
-            <div className="w-2 h-2 rounded-full bg-[#00BBF9]" />
-            <div className="w-2 h-2 rounded-full bg-[#5F0FFF]" />
-            <span className="text-[8px] uppercase tracking-widest text-[#00BBF9]/60 ml-2 font-bold">Deep_Sea_Sequence_v4</span>
+        <div className="w-full md:w-3/5 bg-black/90 rounded-lg p-2 border-2 border-[#3B82F6]/30 relative overflow-hidden aspect-[21/9] shadow-inner">
+          <div className="absolute top-0 left-0 right-0 h-6 bg-neutral-800 border-b border-white/5 flex items-center px-4 gap-2">
+            <div className="w-2 h-2 rounded-full bg-red-500" />
+            <div className="w-2 h-2 rounded-full bg-yellow-500" />
+            <div className="w-2 h-2 rounded-full bg-green-500" />
+            <span className="text-[8px] uppercase tracking-widest text-neutral-500 ml-2">Sequences / Master_Cut_v2</span>
           </div>
           <div className="mt-8 flex gap-1 h-20 items-end">
             {[40, 60, 30, 80, 50, 70, 45, 90, 65, 55, 35, 75].map((h, i) => (
-              <div key={i} className="flex-1 bg-[#00BBF9]/40 border-t border-[#00BBF9] rounded-t-sm" style={{ height: `${h}%` }} />
+              <div key={i} className="flex-1 bg-[#3B82F6]/40 border-t border-[#3B82F6] rounded-t-sm" style={{ height: `${h}%` }} />
             ))}
           </div>
-          <div className="absolute inset-y-0 left-1/2 w-0.5 bg-[#00F5D4] shadow-[0_0_10px_#00F5D4] z-20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#00BBF9]/10 to-transparent pointer-events-none" />
+          <div className="absolute inset-y-0 left-1/2 w-0.5 bg-[#E94E3D] shadow-[0_0_10px_#E94E3D] z-20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#3B82F6]/5 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 film-grain opacity-20 pointer-events-none" />
         </div>
 
         {/* Software & CTA */}
         <div className="w-full md:w-2/5 text-center md:text-left">
-          <h4 className="text-[14px] uppercase tracking-[0.2em] font-bold text-white mb-4">Post-Production Hub</h4>
+          <h4 className="text-[14px] uppercase tracking-[0.2em] font-bold text-[#2B2B2B] mb-4">Post-Production Hub</h4>
           <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
             {workCategories.find(c => c.id === "editing").software.map(sw => (
               <div key={sw.name} className="flex flex-col items-center gap-1 group/sw">
-                <div className="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-sm shadow-md flex items-center justify-center text-[#00F5D4] group-hover/sw:scale-110 transition-transform border border-white/10">
+                <div className="w-10 h-10 rounded-lg bg-white/50 backdrop-blur-sm shadow-md flex items-center justify-center text-[#3B82F6] group-hover/sw:scale-110 transition-transform">
                   <SoftwareIcon name={sw.name} />
                 </div>
-                <span className="text-[8px] uppercase tracking-tighter text-[#00BBF9]/70 font-bold">{sw.name.split(' ').pop()}</span>
+                <span className="text-[8px] uppercase tracking-tighter text-[#6B5E57] font-bold">{sw.name.split(' ').pop()}</span>
               </div>
             ))}
           </div>
           <button
             onClick={() => setShowEditingModal(true)}
-            className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-[#00F5D4] to-[#00BBF9] text-[#0a192f] text-[11px] uppercase tracking-[0.2em] rounded-sm shadow-[0_10px_20px_rgba(0,245,212,0.3)] hover:shadow-[0_15px_25px_rgba(0,245,212,0.4)] hover:-translate-y-1 transition-all duration-300 font-bold"
+            className="w-full md:w-auto px-8 py-3 bg-[#3B82F6] text-white text-[11px] uppercase tracking-[0.2em] rounded-full shadow-[0_10px_20px_rgba(59,130,246,0.3)] hover:shadow-[0_15px_25px_rgba(59,130,246,0.4)] hover:-translate-y-1 transition-all duration-300 font-bold border-glow-blue"
           >
             Enter Suite →
           </button>
         </div>
       </div>
+      <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-[#3B82F6]/5 rounded-full blur-3xl group-hover:bg-[#3B82F6]/10 transition-colors" />
     </div>
   );
 
   const SoundTeaser = () => (
-    <div className="w-full ocean-glass rounded-2xl p-6 mb-8 border border-[#00BBF9]/20 shadow-2xl relative overflow-hidden group hover:shadow-[#00F5D4]/10 transition-all duration-500">
+    <div className="w-full glass-card-warm paper-texture rounded-2xl p-6 mb-8 border border-white/20 shadow-2xl relative overflow-hidden group hover:shadow-accentTeal/20 transition-all duration-500">
       <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
         {/* Waveform Mockup */}
-        <div className="w-full md:w-3/5 bg-black/60 rounded-lg p-6 border-2 border-[#00F5D4]/30 relative overflow-hidden aspect-[21/9] shadow-inner flex flex-col justify-center gap-4">
-           <div className="flex items-center gap-1 justify-center h-24">
-             {[...Array(24)].map((_, i) => (
-               <div 
-                key={i} 
-                className="w-1 bg-[#00F5D4] rounded-full animate-pulse" 
-                style={{ 
+        <div className="w-full md:w-3/5 bg-black/90 rounded-lg p-6 border-2 border-[#22D3EE]/30 relative overflow-hidden aspect-[21/9] shadow-inner flex flex-col justify-center gap-4">
+          <div className="flex items-center gap-1 justify-center h-24">
+            {[...Array(24)].map((_, i) => (
+              <div
+                key={i}
+                className="w-1 bg-[#22D3EE] rounded-full animate-pulse"
+                style={{
                   height: `${20 + Math.random() * 80}%`,
                   animationDelay: `${i * 0.1}s`,
                   animationDuration: `${0.5 + Math.random() * 1}s`
-                }} 
-               />
-             ))}
-           </div>
-           <div className="flex justify-between text-[8px] font-mono text-[#00F5D4]/40 uppercase tracking-widest">
-             <span>00:00:12:45</span>
-             <span>Freq Analysis: Active</span>
-             <span>Peak: -3.2dB</span>
-           </div>
-           <div className="absolute inset-0 bg-gradient-to-b from-[#00F5D4]/5 to-transparent pointer-events-none" />
+                }}
+              />
+            ))}
+          </div>
+          <div className="flex justify-between text-[8px] font-mono text-[#22D3EE]/40 uppercase tracking-widest">
+            <span>00:00:12:45</span>
+            <span>Freq Analysis: Active</span>
+            <span>Peak: -3.2dB</span>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#22D3EE]/5 to-transparent pointer-events-none" />
         </div>
 
         {/* Skills & CTA */}
         <div className="w-full md:w-2/5 text-center md:text-left">
-          <h4 className="text-[14px] uppercase tracking-[0.2em] font-bold text-white mb-4">Sonic Architecture</h4>
+          <h4 className="text-[14px] uppercase tracking-[0.2em] font-bold text-[#2B2B2B] mb-4">Sonic Architecture</h4>
           <div className="space-y-2 mb-8">
             {workCategories.find(c => c.id === "sound").skills.map(sk => (
-              <div key={sk.title} className="text-[10px] uppercase font-bold text-blue-200/60 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00F5D4]" />
+              <div key={sk.title} className="text-[10px] uppercase font-bold text-[#6B5E57] flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#22D3EE]" />
                 {sk.title}
               </div>
             ))}
           </div>
           <button
             onClick={() => setShowSoundModal(true)}
-            className="w-full md:w-auto px-8 py-3 bg-[#00F5D4] text-[#0a192f] text-[11px] uppercase tracking-[0.2em] rounded-sm shadow-[0_10px_20px_rgba(0,245,212,0.3)] hover:shadow-[0_15px_25px_rgba(0,245,212,0.4)] hover:-translate-y-1 transition-all duration-300 font-bold"
+            className="w-full md:w-auto px-8 py-3 bg-[#22D3EE] text-black text-[11px] uppercase tracking-[0.2em] rounded-full shadow-[0_10px_20px_rgba(34,211,238,0.3)] hover:shadow-[0_15px_25px_rgba(34,211,238,0.4)] hover:-translate-y-1 transition-all duration-300 font-bold"
           >
             Enter Studio →
           </button>
         </div>
       </div>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-[#22D3EE]/5 rounded-full blur-3xl group-hover:bg-[#22D3EE]/10 transition-colors" />
     </div>
   );
 
   const PhotographyTeaser = () => {
     const data = workCategories.find(c => c.id === "photography");
     return (
-      <div className="w-full ocean-glass rounded-2xl p-6 mb-8 border border-[#00BBF9]/20 shadow-2xl relative overflow-hidden group hover:shadow-[#FF7A00]/10 transition-all duration-500">
+      <div className="w-full glass-card-warm paper-texture rounded-2xl p-6 mb-8 border border-white/20 shadow-2xl relative overflow-hidden group hover:shadow-accentYellow/20 transition-all duration-500">
         <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
           {/* Polaroid Stack */}
           <div className="w-full md:w-3/5 h-56 relative perspective-1000 flex items-center justify-center">
             {data.images.slice(0, 4).map((img, i) => (
-              <div 
+              <div
                 key={i}
-                className="absolute w-40 aspect-square bg-white/10 backdrop-blur-md p-2 shadow-xl border border-white/20 transition-all duration-500 group-hover:scale-105"
-                style={{ 
+                className="absolute w-40 aspect-square bg-[#FAF9F6] p-2 shadow-xl border border-black/5 transition-all duration-500 group-hover:scale-105"
+                style={{
                   transform: `rotate(${(i - 1.5) * 12}deg) translate(${i * 10 - 20}px, ${i * 5 - 10}px)`,
                   zIndex: 10 + i
                 }}
               >
-                <div className="w-full aspect-square overflow-hidden bg-blue-900/40">
-                  <img src={img} alt="" className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700" />
+                <div className="w-full aspect-square overflow-hidden bg-neutral-200">
+                  <img src={img} alt="" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                 </div>
-                <div className="h-4 mt-1 bg-white/5 rounded-sm" />
+                <div className="h-4 mt-1 bg-neutral-100/50 rounded-sm" />
               </div>
             ))}
           </div>
 
           {/* Stats & CTA */}
           <div className="w-full md:w-2/5 text-center md:text-left">
-            <h4 className="text-[14px] uppercase tracking-[0.2em] font-bold text-white mb-4">Shutter & Light</h4>
+            <h4 className="text-[14px] uppercase tracking-[0.2em] font-bold text-[#2B2B2B] mb-4">Shutter & Light</h4>
             <div className="grid grid-cols-2 gap-4 mb-8">
               {data.works.slice(0, 2).map(w => (
-                <div key={w.title} className="p-3 ocean-glass border border-white/10">
-                  <span className="text-[8px] uppercase tracking-widest text-[#00BBF9]/60 block mb-1 font-bold">Category</span>
-                  <span className="text-[11px] font-bold text-white leading-tight block">{w.title}</span>
+                <div key={w.title} className="p-3 bg-white/40 rounded-xl border border-black/5">
+                  <span className="text-[8px] uppercase tracking-widest text-[#6B5E57] block mb-1 font-bold">Category</span>
+                  <span className="text-[11px] font-bold text-[#2B2B2B] leading-tight block">{w.title}</span>
                 </div>
               ))}
             </div>
             <button
               onClick={() => setShowPhotographyModal(true)}
-              className="w-full md:w-auto px-8 py-3 bg-[#FF7A00] text-white text-[11px] uppercase tracking-[0.2em] rounded-sm shadow-[0_10px_20px_rgba(255,122,0,0.3)] hover:shadow-[0_15px_25px_rgba(255,122,0,0.4)] hover:-translate-y-1 transition-all duration-300 font-bold border border-[#FF7A00]/40"
+              className="w-full md:w-auto px-8 py-3 bg-[#E94E3D] text-white text-[11px] uppercase tracking-[0.2em] rounded-full shadow-[0_10px_20px_rgba(233,78,61,0.3)] hover:shadow-[0_15px_25px_rgba(233,78,61,0.4)] hover:-translate-y-1 transition-all duration-300 font-bold"
             >
               Enter Gallery →
             </button>
           </div>
         </div>
+        <div className="absolute -top-8 -left-8 w-32 h-32 bg-[#E94E3D]/5 rounded-full blur-3xl group-hover:bg-[#E94E3D]/10 transition-colors" />
       </div>
     );
   };
@@ -888,11 +892,11 @@ export default function Experience() {
     <>
       <ScrollRevealSection id="experience">
         <header className="flex flex-wrap items-baseline gap-3 mb-6">
-          <span className="uppercase tracking-[0.18em] text-[10px] text-[#00BBF9]/60 bg-white/5 px-2 py-1 rounded-full border border-dashed border-[#00BBF9]/30">
+          <span className="uppercase tracking-[0.18em] text-[10px] text-neutral-600 bg-white/70 px-2 py-1 rounded-full border border-dashed border-black/20">
             Reel Experience
           </span>
-          <h2 className="font-display text-[17px] uppercase tracking-[0.24em] bg-gradient-to-r from-[#00F5D4] to-[#00BBF9] text-[#0a192f] px-4 py-1 rounded-sm shadow-[0_8px_0_rgba(0,245,212,0.3)] border border-[#00F5D4]/40">
-            Work Credits
+          <h2 className="font-display text-[17px] uppercase tracking-[0.24em] bg-[#fff0cc] px-3 py-1 rounded-full shadow-[0_8px_0_rgba(255,75,75,0.3)] border border-black">
+            <span className="text-accentRed">Work</span> Credits
           </h2>
         </header>
 
@@ -916,9 +920,9 @@ export default function Experience() {
                   setShowPhotographyModal(true);
                 }
               }}
-              className={`text-[13px] uppercase tracking-[0.16em] px-6 py-3 rounded-sm border transition-all duration-200 cursor-pointer font-bold ${activeCategory === cat.id
-                ? `bg-gradient-to-r from-[#00F5D4] to-[#00BBF9] text-[#0a192f] border-[#00F5D4] shadow-[0_4px_0_rgba(0,0,0,0.2)] -translate-y-0.5`
-                : "bg-white/5 border-white/10 text-blue-100/60 hover:border-[#00F5D4]/40 hover:bg-white/15 hover:-translate-y-0.5"
+              className={`text-[13px] uppercase tracking-[0.16em] px-6 py-3 rounded-full border-2 transition-all duration-200 cursor-pointer font-bold ${activeCategory === cat.id
+                ? `${colorClasses[cat.color].tab} shadow-[0_4px_0_rgba(0,0,0,0.2)] -translate-y-0.5`
+                : "bg-white/80 border-black/25 text-neutral-700 hover:border-black/40 hover:bg-white hover:-translate-y-0.5"
                 }`}
             >
               {cat.title}
@@ -929,8 +933,8 @@ export default function Experience() {
         {/* Active Category Content */}
         <div className="min-h-[280px]">
           {/* Description */}
-          <div className="mb-6 p-4 ocean-glass rounded-[16px] border border-white/10">
-            <p className="text-[15px] leading-[1.8] text-blue-50 max-w-3xl font-medium">
+          <div className="mb-6 p-4 bg-gradient-to-r from-white/80 to-[#fff8e8] rounded-[16px] border border-black/10 w-full mx-auto">
+            <p className="text-[15px] leading-[1.8] text-neutral-700 w-full font-medium">
               {activeData?.description}
             </p>
           </div>
@@ -951,52 +955,52 @@ export default function Experience() {
                 <div
                   key={project.title}
                   onClick={() => setSelectedProject(project)}
-                  className={`group relative rounded-[16px] ocean-glass border border-white/10 shadow-[0_8px_0_rgba(0,0,0,0.12)] overflow-hidden transition-all duration-300 cursor-pointer ${index % 2 === 0 ? "-rotate-1" : "rotate-1"
-                    } hover:rotate-0 hover:-translate-y-2 hover:shadow-[0_14px_0_rgba(0,0,0,0.15)] hover:border-[#00F5D4]`}
+                  className={`group relative rounded-[16px] bg-gradient-to-br from-[#fff8e8] to-[#ffe8d8] border-2 border-black/15 shadow-[0_8px_0_rgba(0,0,0,0.12)] overflow-hidden transition-all duration-300 cursor-pointer ${index % 2 === 0 ? "-rotate-1" : "rotate-1"
+                    } hover:rotate-0 hover:-translate-y-2 hover:shadow-[0_14px_0_rgba(0,0,0,0.15)] hover:border-accentYellow`}
                 >
                   {/* Category Badge */}
                   <div className="absolute top-3 left-3 z-10">
-                    <span className={`text-[8px] uppercase tracking-[0.14em] px-2.5 py-1 rounded-sm bg-[#00F5D4] text-[#0a192f] font-bold`}>
+                    <span className={`text-[8px] uppercase tracking-[0.14em] px-2.5 py-1 rounded-full ${activeColorClass.badge}`}>
                       {project.role}
                     </span>
                   </div>
 
                   {/* Year Badge */}
                   <div className="absolute top-3 right-3 z-10">
-                    <span className="text-[8px] uppercase tracking-[0.12em] bg-black/60 text-white px-2 py-1 rounded-sm">
+                    <span className="text-[8px] uppercase tracking-[0.12em] bg-black/60 text-white px-2 py-1 rounded-full">
                       {project.year}
                     </span>
                   </div>
 
                   {/* Visual Content */}
-                  <div className="h-28 bg-[#0a192f] relative">
+                  <div className="h-28 bg-gradient-to-br from-[#ffe4d5] via-[#fff0d1] to-[#f7e4ff] relative">
                     {project.images && project.images[0] ? (
                       <img
                         src={project.images[0]}
                         alt={project.title}
-                        className="w-full h-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-110 group-hover:opacity-100"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                     ) : (
                       <>
-                        <div className="absolute inset-0 bg-[#00BBF9]/10" />
-                        <div className="absolute inset-4 rounded-[10px] border border-dashed border-[#00BBF9]/20" />
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.6),transparent_50%)]" />
+                        <div className="absolute inset-4 rounded-[10px] border-2 border-dashed border-black/10" />
                       </>
                     )}
 
                     {/* Click indicator */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="text-[10px] uppercase tracking-[0.14em] bg-[#00F5D4] text-[#0a192f] font-bold px-3 py-1.5 rounded-sm">
-                        View Details
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-[10px] uppercase tracking-[0.14em] bg-black/70 text-white px-3 py-1.5 rounded-full">
+                        Click to view
                       </span>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-4 bg-black/20 border-t border-white/5">
-                    <h3 className="text-[12px] uppercase tracking-[0.12em] font-bold mb-1 text-white">
+                  <div className="p-4 bg-[#fffaf5]">
+                    <h3 className="text-[12px] uppercase tracking-[0.12em] font-semibold mb-1 text-neutral-800">
                       {project.title}
                     </h3>
-                    <p className="text-[10px] text-[#00BBF9]/60 uppercase tracking-[0.1em] font-bold">
+                    <p className="text-[10px] text-neutral-500 uppercase tracking-[0.1em]">
                       {project.note}
                     </p>
                   </div>
@@ -1007,14 +1011,14 @@ export default function Experience() {
         </div>
 
         {/* Footer hint */}
-        <div className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-[#00BBF9]/40">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00BBF9]/20 to-transparent" />
+        <div className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-neutral-500">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-black/20 to-transparent" />
           <span>
             {activeCategory === "editing" || activeCategory === "sound" || activeCategory === "photography"
               ? "Click button to view details"
               : "Click tabs to explore · Click cards to view screenshots"}
           </span>
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00BBF9]/20 to-transparent" />
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-black/20 to-transparent" />
         </div>
       </ScrollRevealSection>
 

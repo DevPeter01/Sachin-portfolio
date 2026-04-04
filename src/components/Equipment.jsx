@@ -6,68 +6,77 @@ import macMini from "../../assets/apple-mac-mini-m4-pro-computer-tower-EKrMyzA-6
 
 export default function Equipment() {
   return (
-    <section id="equipment" className="mt-20">
-      <div className="relative bg-gradient-to-br from-[#0a192f] via-[#09121d] to-[#04080e] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-[#00BBF9]/20 px-6 py-8 sm:px-8 sm:py-10 overflow-hidden">
-        {/* Animated Water Background Elements */}
+    <section id="equipment" className="mt-8">
+      <div className="relative bg-gradient-to-br from-[#1a1410] via-[#2d2420] to-[#1f1a15] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-amber-900/30 px-2 py-4 sm:px-3 sm:py-6 overflow-hidden">
+        {/* Background film elements */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 border border-[#00F5D4]/20 rounded-full animate-pulse blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] border border-[#00BBF9]/10 rounded-full animate-pulse delay-500 blur-3xl" />
-          
-          {/* Bubbles */}
-          <div className="absolute top-10 right-10 w-4 h-4 rounded-full border border-white/20 animate-bounce"></div>
-          <div className="absolute bottom-20 left-1/3 w-3 h-3 rounded-full border border-white/10 animate-bounce delay-300"></div>
-          <div className="absolute top-1/2 right-1/4 w-6 h-6 rounded-full border border-white/5 animate-pulse delay-700"></div>
+          {/* Film strip pattern */}
+          <div className="absolute top-4 left-4 w-32 h-24 border-2 border-amber-500/50 rounded-lg transform -rotate-6"></div>
+          <div className="absolute top-8 right-8 w-24 h-20 border-2 border-amber-500/50 rounded-lg transform rotate-12"></div>
+          <div className="absolute bottom-6 left-1/4 w-20 h-16 border-2 border-amber-500/50 rounded-lg transform rotate-3"></div>
+          <div className="absolute bottom-10 right-12 w-28 h-20 border-2 border-amber-500/50 rounded-lg transform -rotate-6"></div>
+
+          {/* Film reels */}
+          <div className="absolute top-20 right-1/4 w-16 h-16 border-4 border-amber-500/30 rounded-full"></div>
+          <div className="absolute bottom-16 left-12 w-12 h-12 border-4 border-amber-500/30 rounded-full"></div>
+
+          {/* Camera silhouette */}
+          <div className="absolute top-1/3 left-8 w-10 h-8 bg-amber-500/20 rounded-lg transform -rotate-12"></div>
+          <div className="absolute bottom-1/4 right-16 w-8 h-6 bg-amber-500/20 rounded-sm transform rotate-6"></div>
         </div>
-        
+
+        {/* Radial gradient overlay for depth */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,90,43,0.15)_0%,transparent_70%)]"></div>
+
         {/* Content */}
         <div className="relative z-10">
           <header className="flex flex-wrap items-baseline gap-3 mb-6">
-            <span className="uppercase tracking-[0.18em] text-[10px] text-[#00F5D4] bg-white/5 px-3 py-1.5 rounded-sm border border-dashed border-[#00F5D4]/30 font-bold">
+            <span className="uppercase tracking-[0.18em] text-[10px] text-amber-200/70 bg-black/40 px-3 py-1.5 rounded-full border border-dashed border-amber-500/30">
               Tools Of The Trade
             </span>
-            <h2 className="font-display text-[17px] uppercase tracking-[0.24em] bg-gradient-to-r from-[#00F5D4] to-[#00BBF9] text-[#0a192f] px-4 py-1.5 rounded-sm shadow-[0_8px_0_rgba(0,245,212,0.3)] border border-[#00F5D4]/40">
-              Equipment <span className="text-[#0a192f]/70">I Own</span>
+            <h2 className="font-display text-[17px] uppercase tracking-[0.24em] bg-gradient-to-r from-[#2a2218] to-[#3d3020] px-4 py-1.5 rounded-full shadow-[0_8px_0_rgba(255,75,75,0.3)] border border-amber-700/40">
+              <span className="text-accentRed">Equipment</span> <span className="text-amber-100">I Own</span>
             </h2>
           </header>
 
           <div className="grid gap-4 md:grid-cols-2">
-            <article className="grid grid-cols-[1.1fr_1.2fr] gap-2 ocean-glass rounded-[18px] border border-white/10 shadow-[0_12px_0_rgba(0,0,0,0.3)] overflow-hidden hover:border-[#00F5D4] transition-all duration-300 group">
-              <div className="relative bg-gradient-to-br from-[#00F5D4]/20 to-[#00BBF9]/20 flex items-center justify-center p-3 overflow-hidden">
-                <img 
-                  src={sonyCamera} 
-                  alt="Sony Alpha A7 Mark IV" 
-                  className="w-full h-full object-cover rounded-[12px] group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0 shadow-lg"
+            <article className="grid grid-cols-[1.1fr_1.2fr] gap-2 bg-gradient-to-br from-[#3d3020] to-[#2a2218] rounded-[18px] border border-amber-500/20 shadow-[0_12px_0_rgba(0,0,0,0.3)] overflow-hidden hover:border-amber-500/40 transition-all duration-300">
+              <div className="relative bg-gradient-to-br from-accentYellow to-accentPink flex items-center justify-center p-3 overflow-hidden">
+                <img
+                  src={sonyCamera}
+                  alt="Sony Alpha A7 Mark IV"
+                  className="w-full h-full object-cover rounded-[12px]"
                 />
-                <div className="absolute bottom-2 right-3 text-[9px] uppercase tracking-[0.14em] bg-[#0a192f]/90 text-white px-2 py-1 rounded-sm border border-[#00F5D4]/30">
+                <div className="absolute bottom-2 right-3 text-[9px] uppercase tracking-[0.14em] bg-black/85 text-[#fff8e8] px-2 py-1 rounded-full">
                   Sony Alpha A7 Mark IV
                 </div>
               </div>
               <div className="px-4 py-3 flex flex-col justify-center gap-2">
-                <div className="text-[13px] uppercase tracking-[0.16em] font-bold text-white">
+                <div className="text-[13px] uppercase tracking-[0.16em] font-semibold text-amber-100">
                   Sony Alpha A7 Mark IV
                 </div>
-                <div className="text-[11px] uppercase tracking-[0.16em] text-[#00BBF9] font-bold">
+                <div className="text-[11px] uppercase tracking-[0.16em] text-amber-200/60">
                   Primary Camera · Full Frame
                 </div>
               </div>
             </article>
 
-            <article className="grid grid-cols-[1.1fr_1.2fr] gap-2 ocean-glass rounded-[18px] border border-white/10 shadow-[0_12px_0_rgba(0,0,0,0.3)] overflow-hidden hover:border-[#00F5D4] transition-all duration-300 group">
-              <div className="relative bg-gradient-to-br from-[#00BBF9]/20 to-[#00F5D4]/20 flex items-center justify-center p-3 overflow-hidden">
-                <img 
-                  src={macMini} 
-                  alt="Mac M4" 
-                  className="w-full h-full object-cover rounded-[12px] group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0 shadow-lg"
+            <article className="grid grid-cols-[1.1fr_1.2fr] gap-2 bg-gradient-to-br from-[#3d3020] to-[#2a2218] rounded-[18px] border border-amber-500/20 shadow-[0_12px_0_rgba(0,0,0,0.3)] overflow-hidden hover:border-amber-500/40 transition-all duration-300">
+              <div className="relative bg-gradient-to-br from-[#b2f1ff] to-[#ffd7f3] flex items-center justify-center p-3 overflow-hidden">
+                <img
+                  src={macMini}
+                  alt="Mac M4"
+                  className="w-full h-full object-cover rounded-[12px]"
                 />
-                <div className="absolute bottom-2 right-3 text-[9px] uppercase tracking-[0.14em] bg-[#0a192f]/90 text-white px-2 py-1 rounded-sm border border-[#00BBF9]/30">
+                <div className="absolute bottom-2 right-3 text-[9px] uppercase tracking-[0.14em] bg-black/85 text-[#fff8e8] px-2 py-1 rounded-full">
                   Mac M4
                 </div>
               </div>
               <div className="px-4 py-3 flex flex-col justify-center gap-2">
-                <div className="text-[13px] uppercase tracking-[0.16em] font-bold text-white">
+                <div className="text-[13px] uppercase tracking-[0.16em] font-semibold text-amber-100">
                   Mac M4
                 </div>
-                <div className="text-[11px] uppercase tracking-[0.16em] text-[#00BBF9] font-bold">
+                <div className="text-[11px] uppercase tracking-[0.16em] text-amber-200/60">
                   Editing & Sound Workstation
                 </div>
               </div>
