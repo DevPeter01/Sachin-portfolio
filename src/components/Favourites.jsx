@@ -25,6 +25,7 @@ import mikeMiles from "../../assets/flim-makers/mike-miles.jpeg";
 import russoBrothers from "../../assets/flim-makers/russo-brothers.jpeg";
 import stevenSpielberg from "../../assets/flim-makers/steven-spelberg.jpeg";
 import taika from "../../assets/flim-makers/Taika-Waititi.jpeg";
+import christopherStorer from "../../assets/flim-makers/Christopher Storer.jpeg";
 
 // Import book images from assets
 import inTheBlink from "../../assets/books/in_the_blink_of_an_eye.jpeg";
@@ -80,7 +81,8 @@ const categories = [
       { label: "Mike Miles", image: mikeMiles },
       { label: "Russo Brothers", image: russoBrothers },
       { label: "Steven Spielberg", image: stevenSpielberg },
-      { label: "Taika Waititi", image: taika }
+      { label: "Taika Waititi", image: taika },
+      { label: "Christopher Storer", image: christopherStorer }
     ]
   }
 ];
@@ -179,14 +181,14 @@ function FilmCarousel() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Gradient Overlays for fade effect - dark theme */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#1a1410] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#1a1410] to-transparent z-10 pointer-events-none" />
+      {/* Gradient Overlays for fade effect - Ocean theme */}
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0a192f] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0a192f] to-transparent z-10 pointer-events-none" />
 
       {/* Previous Button */}
       <button
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#00F5D4]/80 hover:bg-[#00F5D4] text-[#0a192f] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-[0_0_15px_rgba(0,245,212,0.4)] border border-[#00F5D4]/40 cursor-pointer"
         aria-label="Previous"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -197,7 +199,7 @@ function FilmCarousel() {
       {/* Next Button */}
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#00F5D4]/80 hover:bg-[#00F5D4] text-[#0a192f] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-[0_0_15px_rgba(0,245,212,0.4)] border border-[#00F5D4]/40 cursor-pointer"
         aria-label="Next"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -214,12 +216,12 @@ function FilmCarousel() {
         {allPosters.map((poster, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-36 sm:w-44 md:w-52 aspect-[2/3] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-amber-500/30"
+            className="flex-shrink-0 w-36 sm:w-44 md:w-52 aspect-[2/3] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-[#00BBF9]/30"
           >
             <img
               src={poster}
               alt=""
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all duration-500"
             />
           </div>
         ))}
@@ -231,10 +233,10 @@ function FilmCarousel() {
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
               Math.floor(currentIndex) === index 
-                ? 'bg-accentRed w-4' 
-                : 'bg-amber-500/40 hover:bg-amber-500/60'
+                ? 'bg-[#00F5D4] w-4 shadow-[0_0_8px_rgba(0,245,212,0.6)]' 
+                : 'bg-[#00F5D4]/20 hover:bg-[#00F5D4]/60'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -318,14 +320,14 @@ function FilmmakerCarousel({ items }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Gradient Overlays for fade effect - dark theme */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#1a1410] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#1a1410] to-transparent z-10 pointer-events-none" />
+      {/* Gradient Overlays for fade effect - ocean theme */}
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0a192f] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0a192f] to-transparent z-10 pointer-events-none" />
 
       {/* Previous Button */}
       <button
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#00F5D4]/80 hover:bg-[#00F5D4] text-[#0a192f] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg border border-[#00F5D4]/40 cursor-pointer"
         aria-label="Previous"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -336,7 +338,7 @@ function FilmmakerCarousel({ items }) {
       {/* Next Button */}
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#00F5D4]/80 hover:bg-[#00F5D4] text-[#0a192f] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg border border-[#00F5D4]/40 cursor-pointer"
         aria-label="Next"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -353,28 +355,28 @@ function FilmmakerCarousel({ items }) {
         {allItems.map((item, index) => (
           <div
             key={index}
-            className="relative flex-shrink-0 w-36 sm:w-44 md:w-52 aspect-[3/4] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-amber-500/30"
+            className="relative flex-shrink-0 w-36 sm:w-44 md:w-52 aspect-[3/4] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-[#00BBF9]/30"
           >
             {/* Filmmaker Image */}
             <img 
               src={item.image} 
               alt={item.label}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all duration-500"
             />
             
             {/* Gradient overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             
             {/* Category badge */}
             <div className="absolute top-3 left-3 z-10">
-              <span className="text-[8px] uppercase tracking-[0.14em] bg-accentRed text-white px-2 py-1 rounded-full">
+              <span className="text-[8px] uppercase tracking-[0.14em] bg-[#00F5D4] text-[#0a192f] px-2 py-1 rounded-sm font-bold shadow-[0_0_8px_rgba(0,245,212,0.4)]">
                 Director
               </span>
             </div>
 
             {/* Content */}
-            <div className="absolute bottom-0 left-0 right-0 p-3">
-              <div className="text-[12px] uppercase tracking-[0.12em] font-semibold text-amber-100">
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <div className="text-[14px] uppercase tracking-[0.14em] font-bold text-white">
                 {item.label}
               </div>
             </div>
@@ -388,10 +390,10 @@ function FilmmakerCarousel({ items }) {
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
               Math.floor(currentIndex) === index 
-                ? 'bg-accentRed w-4' 
-                : 'bg-amber-500/40 hover:bg-amber-500/60'
+                ? 'bg-[#00F5D4] w-4 shadow-[0_0_8px_rgba(0,245,212,0.6)]' 
+                : 'bg-[#00F5D4]/20 hover:bg-[#00F5D4]/60'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -475,14 +477,14 @@ function BooksCarousel({ items }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Gradient Overlays for fade effect - dark theme */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#1a1410] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#1a1410] to-transparent z-10 pointer-events-none" />
+      {/* Gradient Overlays for fade effect - ocean theme */}
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0a192f] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0a192f] to-transparent z-10 pointer-events-none" />
 
       {/* Previous Button */}
       <button
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#00F5D4]/80 hover:bg-[#00F5D4] text-[#0a192f] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg border border-[#00F5D4]/40 cursor-pointer"
         aria-label="Previous"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -493,7 +495,7 @@ function BooksCarousel({ items }) {
       {/* Next Button */}
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#00F5D4]/80 hover:bg-[#00F5D4] text-[#0a192f] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg border border-[#00F5D4]/40 cursor-pointer"
         aria-label="Next"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -510,31 +512,31 @@ function BooksCarousel({ items }) {
         {allItems.map((item, index) => (
           <div
             key={index}
-            className="relative flex-shrink-0 w-36 sm:w-44 md:w-52 aspect-[2/3] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-amber-500/30"
+            className="relative flex-shrink-0 w-36 sm:w-44 md:w-52 aspect-[2/3] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-[#00BBF9]/30"
           >
             {/* Book Image */}
             <img 
               src={item.image} 
               alt={item.label}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all duration-500"
             />
             
             {/* Gradient overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             
             {/* Category badge */}
             <div className="absolute top-3 left-3 z-10">
-              <span className="text-[8px] uppercase tracking-[0.14em] bg-accentRed text-white px-2 py-1 rounded-full">
+              <span className="text-[8px] uppercase tracking-[0.14em] bg-[#00F5D4] text-[#0a192f] px-2 py-1 rounded-sm font-bold shadow-[0_0_8px_rgba(0,245,212,0.4)]">
                 Book
               </span>
             </div>
 
             {/* Content */}
-            <div className="absolute bottom-0 left-0 right-0 p-3">
-              <div className="text-[11px] uppercase tracking-[0.12em] font-semibold mb-1 text-amber-100 line-clamp-2">
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <div className="text-[13px] uppercase tracking-[0.14em] font-bold mb-1 text-white line-clamp-2">
                 {item.label}
               </div>
-              <div className="text-[9px] text-amber-200/70">{item.note}</div>
+              <div className="text-[11px] text-[#00BBF9] font-bold">{item.note}</div>
             </div>
           </div>
         ))}
@@ -546,10 +548,10 @@ function BooksCarousel({ items }) {
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
               Math.floor(currentIndex) === index 
-                ? 'bg-accentRed w-4' 
-                : 'bg-amber-500/40 hover:bg-amber-500/60'
+                ? 'bg-[#00F5D4] w-4 shadow-[0_0_8px_rgba(0,245,212,0.6)]' 
+                : 'bg-[#00F5D4]/20 hover:bg-[#00F5D4]/60'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -633,14 +635,14 @@ function AnimeCarousel({ items }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Gradient Overlays for fade effect - dark theme */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#1a1410] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#1a1410] to-transparent z-10 pointer-events-none" />
+      {/* Gradient Overlays for fade effect - ocean theme */}
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0a192f] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0a192f] to-transparent z-10 pointer-events-none" />
 
       {/* Previous Button */}
       <button
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#00F5D4]/80 hover:bg-[#00F5D4] text-[#0a192f] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg border border-[#00F5D4]/40 cursor-pointer"
         aria-label="Previous"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -651,7 +653,7 @@ function AnimeCarousel({ items }) {
       {/* Next Button */}
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-amber-500/80 hover:bg-amber-500 text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#00F5D4]/80 hover:bg-[#00F5D4] text-[#0a192f] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg border border-[#00F5D4]/40 cursor-pointer"
         aria-label="Next"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -668,21 +670,21 @@ function AnimeCarousel({ items }) {
         {allItems.map((item, index) => (
           <div
             key={index}
-            className="relative flex-shrink-0 w-36 sm:w-44 md:w-52 aspect-[2/3] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-amber-500/30"
+            className="relative flex-shrink-0 w-36 sm:w-44 md:w-52 aspect-[2/3] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-[#00BBF9]/30"
           >
             {/* Anime Image */}
             <img 
               src={item.image} 
               alt="Anime"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all duration-500"
             />
             
             {/* Gradient overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             
             {/* Category badge */}
             <div className="absolute top-3 left-3 z-10">
-              <span className="text-[8px] uppercase tracking-[0.14em] bg-accentRed text-white px-2 py-1 rounded-full">
+              <span className="text-[8px] uppercase tracking-[0.14em] bg-[#00F5D4] text-[#0a192f] px-2 py-1 rounded-sm font-bold shadow-[0_0_8px_rgba(0,245,212,0.4)]">
                 Anime
               </span>
             </div>
@@ -696,10 +698,10 @@ function AnimeCarousel({ items }) {
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
               Math.floor(currentIndex) === index 
-                ? 'bg-accentRed w-4' 
-                : 'bg-amber-500/40 hover:bg-amber-500/60'
+                ? 'bg-[#00F5D4] w-4 shadow-[0_0_8px_rgba(0,245,212,0.6)]' 
+                : 'bg-[#00F5D4]/20 hover:bg-[#00F5D4]/60'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -716,48 +718,34 @@ export default function Favourites() {
 
   return (
     <section id="favourites" className="mt-20">
-      <div className="relative bg-gradient-to-br from-[#1a1410] via-[#2d2420] to-[#1f1a15] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-amber-900/30 px-6 py-8 sm:px-8 sm:py-10 overflow-hidden">
-        {/* Background film elements */}
+      <div className="relative bg-gradient-to-br from-[#0a192f] via-[#09121d] to-[#04080e] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-[#00BBF9]/20 px-6 py-8 sm:px-8 sm:py-10 overflow-hidden">
+        {/* Animated Water Background Elements */}
         <div className="absolute inset-0 opacity-10">
-          {/* Film strip pattern */}
-          <div className="absolute top-4 left-4 w-32 h-24 border-2 border-amber-500/50 rounded-lg transform -rotate-6"></div>
-          <div className="absolute top-8 right-8 w-24 h-20 border-2 border-amber-500/50 rounded-lg transform rotate-12"></div>
-          <div className="absolute bottom-6 left-1/4 w-20 h-16 border-2 border-amber-500/50 rounded-lg transform rotate-3"></div>
-          <div className="absolute bottom-10 right-12 w-28 h-20 border-2 border-amber-500/50 rounded-lg transform -rotate-6"></div>
-          
-          {/* Film reels */}
-          <div className="absolute top-20 right-1/4 w-16 h-16 border-4 border-amber-500/30 rounded-full"></div>
-          <div className="absolute bottom-16 left-12 w-12 h-12 border-4 border-amber-500/30 rounded-full"></div>
-          
-          {/* Star shapes */}
-          <div className="absolute top-12 left-1/3 w-4 h-4 bg-amber-500/30 rounded-sm transform rotate-45"></div>
-          <div className="absolute bottom-20 right-1/3 w-3 h-3 bg-amber-500/30 rounded-sm transform rotate-12"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 border border-[#00F5D4]/20 rounded-full animate-pulse blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] border border-[#00BBF9]/10 rounded-full animate-pulse delay-500 blur-3xl" />
         </div>
-        
-        {/* Radial gradient overlay for depth */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,90,43,0.15)_0%,transparent_70%)]"></div>
         
         {/* Content */}
         <div className="relative z-10">
-          <header className="flex flex-wrap items-baseline gap-3 mb-6">
-            <span className="uppercase tracking-[0.18em] text-[10px] text-amber-200/70 bg-black/40 px-3 py-1.5 rounded-full border border-dashed border-amber-500/30">
+          <header className="flex flex-wrap items-baseline gap-4 mb-8">
+            <span className="uppercase tracking-[0.2em] text-[12px] text-[#00F5D4] bg-white/5 px-4 py-2 rounded-sm border border-dashed border-[#00F5D4]/30 font-bold">
               Influence Board
             </span>
-            <h2 className="font-display text-[17px] uppercase tracking-[0.24em] bg-gradient-to-r from-[#2a2218] to-[#3d3020] px-4 py-1.5 rounded-full shadow-[0_8px_0_rgba(255,75,75,0.3)] border border-amber-700/40">
-              <span className="text-accentRed">Favourites</span> <span className="text-amber-100">Shelf</span>
+            <h2 className="font-display text-[20px] uppercase tracking-[0.24em] bg-gradient-to-r from-[#00F5D4] to-[#00BBF9] text-[#0a192f] px-5 py-2 rounded-sm shadow-[0_8px_0_rgba(0,245,212,0.3)] border border-[#00F5D4]/40">
+              Favourites <span className="text-[#0a192f]/70">Shelf</span>
             </h2>
           </header>
 
           {/* Category Tabs - Clickable Buttons */}
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap gap-2 mb-8">
             {categories.map(cat => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`text-[11px] uppercase tracking-[0.16em] px-4 py-2 rounded-full border-2 transition-all duration-200 cursor-pointer ${
+                className={`text-[13px] uppercase tracking-[0.18em] px-5 py-2.5 rounded-sm border transition-all duration-200 cursor-pointer font-bold ${
                   activeCategory === cat.id
-                    ? "bg-accentRed text-white border-accentRed shadow-[0_4px_0_rgba(0,0,0,0.2)] -translate-y-0.5"
-                    : "bg-black/40 border-amber-500/30 text-amber-100/70 hover:border-amber-500/50 hover:bg-black/50 hover:-translate-y-0.5"
+                    ? "bg-gradient-to-r from-[#00F5D4] to-[#00BBF9] text-[#0a192f] border-[#00F5D4] shadow-[0_4px_15px_rgba(0,245,212,0.3)] scale-105"
+                    : "bg-white/5 border-white/10 text-blue-100/60 hover:border-[#00F5D4]/40 hover:bg-white/15 hover:-translate-y-0.5"
                 }`}
               >
                 {cat.title}
@@ -785,26 +773,26 @@ export default function Favourites() {
                 {activeData?.items?.map((item, index) => (
                   <div
                     key={item.label}
-                    className={`relative aspect-[3/4] rounded-[16px] bg-gradient-to-br from-[#3d3020] to-[#2a2218] shadow-[0_16px_0_rgba(0,0,0,0.3)] overflow-hidden transition-all duration-300 group border border-amber-500/20 ${
+                    className={`relative aspect-[3/4] rounded-[16px] ocean-glass shadow-[0_16px_0_rgba(0,0,0,0.3)] overflow-hidden transition-all duration-300 group border border-white/10 ${
                       index % 2 === 0 ? "-rotate-1" : "rotate-1"
-                    } hover:rotate-0 hover:-translate-y-2 hover:shadow-[0_22px_0_rgba(0,0,0,0.35)] hover:border-amber-500/40`}
+                    } hover:rotate-0 hover:-translate-y-2 hover:shadow-[0_22px_0_rgba(0,0,0,0.35)] hover:border-[#00F5D4]`}
                   >
-                    {/* Background texture */}
-                    <div className="absolute inset-2 rounded-[12px] bg-[radial-gradient(circle_at_20%_20%,rgba(255,200,100,0.1),transparent_50%)]" />
+                    {/* Background decoration */}
+                    <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors" />
                     
                     {/* Category badge */}
                     <div className="absolute top-3 left-3 z-10">
-                      <span className="text-[8px] uppercase tracking-[0.14em] bg-accentRed text-white px-2 py-1 rounded-full">
+                      <span className="text-[8px] uppercase tracking-[0.14em] bg-[#00F5D4] text-[#0a192f] px-2 py-1 rounded-sm font-bold">
                         {activeData.id.slice(0, -1)}
                       </span>
                     </div>
 
                     {/* Content */}
-                    <div className="absolute bottom-2 left-2 right-2 bg-[#1a1410]/95 rounded-[12px] px-3 py-3 border border-amber-500/20">
-                      <div className="text-[12px] uppercase tracking-[0.12em] font-semibold mb-1 text-amber-100">
+                    <div className="absolute bottom-2 left-2 right-2 ocean-glass rounded-[12px] px-3 py-3 border border-white/10">
+                      <div className="text-[12px] uppercase tracking-[0.12em] font-bold mb-1 text-white">
                         {item.label}
                       </div>
-                      <div className="text-[9px] text-amber-200/60 mb-1">{item.note}</div>
+                      <div className="text-[9px] text-[#00BBF9] font-bold mb-1">{item.note}</div>
                     </div>
                   </div>
                 ))}
@@ -813,10 +801,10 @@ export default function Favourites() {
           </div>
 
           {/* Decorative element */}
-          <div className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-amber-200/40">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
+          <div className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-[#00BBF9]/40">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00BBF9]/20 to-transparent" />
             <span>Click tabs to explore</span>
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00BBF9]/20 to-transparent" />
           </div>
         </div>
       </div>

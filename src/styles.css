@@ -2,45 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Cinematic film aesthetic */
+:root {
+  --aqua: #00F5D4;
+  --ocean-blue: #00BBF9;
+  --coral: #FF7A00;
+  --deep-ocean: #09121d;
+  --sea-glass: rgba(255, 255, 255, 0.45);
+}
+
+/* Base Ocean Theme */
 .section-frame {
   position: relative;
   overflow: hidden;
 }
 
-/* Warm cinematic color accents */
-.section-frame::before {
-  content: "";
-  position: absolute;
-  inset: -40px;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle at 20% 0%, rgba(245, 158, 11, 0.2) 0, transparent 55%),
-    radial-gradient(circle at 100% 40%, rgba(220, 38, 38, 0.15) 0, transparent 55%),
-    radial-gradient(circle at 0% 80%, rgba(217, 119, 6, 0.15) 0, transparent 55%);
-  mix-blend-mode: multiply;
-  opacity: 0.6;
-}
-
-/* Film texture overlay */
-.section-frame::after {
-  content: "";
-  position: absolute;
-  inset: -40px;
-  background-image: repeating-linear-gradient(
-    -4deg,
-    transparent 0 8px,
-    rgba(0, 0, 0, 0.015) 8px 12px
-  );
-  opacity: 0.6;
-  mask-image: radial-gradient(circle at top, black 0, black 55%, transparent 80%);
-  pointer-events: none;
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reveal.in-view {
@@ -48,34 +27,115 @@
   transform: translateY(0);
 }
 
-/* Film strip border effect */
-.film-border {
-  position: relative;
+/* Ocean Glass - High Performance Glassmorphism */
+.ocean-glass {
+  background: var(--sea-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 187, 249, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
-.film-border::before,
-.film-border::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 12px;
-  background: repeating-linear-gradient(
-    90deg,
-    #1a1a1a 0,
-    #1a1a1a 8px,
-    transparent 8px,
-    transparent 12px
-  );
+.ocean-glass-dark {
+  background: rgba(9, 18, 29, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 245, 212, 0.15);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
 }
 
-.film-border::before {
-  top: -12px;
+/* Neon Outlines */
+.neon-border-aqua {
+  border: 1px solid var(--aqua);
+  box-shadow: 0 0 15px rgba(0, 245, 212, 0.3);
 }
 
-.film-border::after {
-  bottom: -12px;
+.neon-border-blue {
+  border: 1px solid var(--ocean-blue);
+  box-shadow: 0 0 15px rgba(0, 187, 249, 0.3);
 }
 
+/* Animations */
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
 
+@keyframes bubbleFloat {
+  0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.4; }
+  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
 
+@keyframes fishSwim {
+  0% { transform: translateX(-10vw) scaleX(1); }
+  49% { transform: translateX(110vw) scaleX(1); }
+  50% { transform: translateX(110vw) scaleX(-1); }
+  99% { transform: translateX(-10vw) scaleX(-1); }
+  100% { transform: translateX(-10vw) scaleX(1); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-sway {
+  animation: sway 6s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.animate-bubble {
+  animation: bubbleFloat 10s linear infinite;
+}
+
+.animate-fish {
+  animation: fishSwim 30s linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-slide {
+  animation: fadeSlideUp 0.6s ease-out forwards;
+}
+
+/* Interactive elements */
+.hover-lift {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 187, 249, 0.15);
+}
+
+.aqua-glow:hover {
+  box-shadow: 0 0 25px rgba(0, 245, 212, 0.5);
+  background-color: var(--aqua);
+}
+
+/* Scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--ocean-blue);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--aqua);
+}
