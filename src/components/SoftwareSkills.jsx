@@ -74,7 +74,7 @@ function SkillMeter({ name, level, note }) {
 export default function SoftwareSkills() {
   return (
     <section id="software" className="mt-8">
-      <div className="relative bg-gradient-to-br from-[#1a1410] via-[#2d2420] to-[#1f1a15] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-amber-900/30 px-2 py-4 sm:px-3 sm:py-6 overflow-hidden">
+      <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-white/20 px-2 py-4 sm:px-3 sm:py-6 overflow-hidden">
         {/* Background film elements */}
         <div className="absolute inset-0 opacity-10">
           {/* Film strip pattern */}

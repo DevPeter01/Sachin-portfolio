@@ -743,7 +743,7 @@ export default function Experience() {
 
   // Teaser Components for Editing, Sound, and Photography
   const EditingTeaser = () => (
-    <div className="w-full glass-card-warm paper-texture rounded-2xl p-2 mb-8 border border-white/20 shadow-2xl relative overflow-hidden group hover:shadow-accentBlue/20 transition-all duration-500">
+    <div className="w-full bg-white/10 backdrop-blur-xl rounded-2xl p-2 mb-8 border border-white/20 shadow-2xl relative overflow-hidden group hover:shadow-accentBlue/20 transition-all duration-500">
       <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
         {/* Timeline Reel Mockup */}
         <div className="w-full md:w-3/5 bg-black/90 rounded-lg p-2 border-2 border-[#3B82F6]/30 relative overflow-hidden aspect-[21/9] shadow-inner">
@@ -789,7 +789,7 @@ export default function Experience() {
   );
 
   const SoundTeaser = () => (
-    <div className="w-full glass-card-warm paper-texture rounded-2xl p-6 mb-8 border border-white/20 shadow-2xl relative overflow-hidden group hover:shadow-accentTeal/20 transition-all duration-500">
+    <div className="w-full bg-white/10 backdrop-blur-xl rounded-2xl p-6 mb-8 border border-white/20 shadow-2xl relative overflow-hidden group hover:shadow-accentTeal/20 transition-all duration-500">
       <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
         {/* Waveform Mockup */}
         <div className="w-full md:w-3/5 bg-black/90 rounded-lg p-6 border-2 border-[#22D3EE]/30 relative overflow-hidden aspect-[21/9] shadow-inner flex flex-col justify-center gap-4">
@@ -840,7 +840,7 @@ export default function Experience() {
   const PhotographyTeaser = () => {
     const data = workCategories.find(c => c.id === "photography");
     return (
-      <div className="w-full glass-card-warm paper-texture rounded-2xl p-6 mb-8 border border-white/20 shadow-2xl relative overflow-hidden group hover:shadow-accentYellow/20 transition-all duration-500">
+      <div className="w-full bg-white/10 backdrop-blur-xl rounded-2xl p-6 mb-8 border border-white/20 shadow-2xl relative overflow-hidden group hover:shadow-accentYellow/20 transition-all duration-500">
         <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
           {/* Polaroid Stack */}
           <div className="w-full md:w-3/5 h-56 relative perspective-1000 flex items-center justify-center">
@@ -933,7 +933,7 @@ export default function Experience() {
         {/* Active Category Content */}
         <div className="min-h-[280px]">
           {/* Description */}
-          <div className="mb-6 p-4 bg-gradient-to-r from-white/80 to-[#fff8e8] rounded-[16px] border border-black/10 w-full mx-auto">
+          <div className="mb-6 p-4 bg-white/10 backdrop-blur-md rounded-[16px] border border-white/10 w-full mx-auto">
             <p className="text-[15px] leading-[1.8] text-neutral-700 w-full font-medium">
               {activeData?.description}
             </p>
@@ -955,8 +955,8 @@ export default function Experience() {
                 <div
                   key={project.title}
                   onClick={() => setSelectedProject(project)}
-                  className={`group relative rounded-[16px] bg-gradient-to-br from-[#fff8e8] to-[#ffe8d8] border-2 border-black/15 shadow-[0_8px_0_rgba(0,0,0,0.12)] overflow-hidden transition-all duration-300 cursor-pointer ${index % 2 === 0 ? "-rotate-1" : "rotate-1"
-                    } hover:rotate-0 hover:-translate-y-2 hover:shadow-[0_14px_0_rgba(0,0,0,0.15)] hover:border-accentYellow`}
+                  className={`group relative rounded-[16px] bg-white/5 backdrop-blur-lg border-2 border-white/20 shadow-md overflow-hidden transition-all duration-300 cursor-pointer ${index % 2 === 0 ? "-rotate-1" : "rotate-1"
+                    } hover:rotate-0 hover:-translate-y-2 hover:shadow-xl hover:border-accentYellow`}
                 >
                   {/* Category Badge */}
                   <div className="absolute top-3 left-3 z-10">
@@ -996,7 +996,7 @@ export default function Experience() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-4 bg-[#fffaf5]">
+                  <div className="p-4 bg-white/10">
                     <h3 className="text-[12px] uppercase tracking-[0.12em] font-semibold mb-1 text-neutral-800">
                       {project.title}
                     </h3>

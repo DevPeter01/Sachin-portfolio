@@ -39,8 +39,8 @@ export default function Hero() {
           </p>
 
           {/* Cinematic Summary Panel */}
-          <div className="glass-card-warm paper-texture rounded-[28px] p-6 md:px-8 md:py-10 border border-amber-900/10 w-full mb-10 relative shadow-2xl">
-            <p className="text-[14px] md:text-[16px] leading-[2] text-neutral-800 font-medium tracking-wide first-line:uppercase first-line:tracking-widest">
+          <div className="bg-white/10 backdrop-blur-xl rounded-[28px] p-6 md:px-8 md:py-10 border border-white/20 w-full mb-10 relative shadow-2xl overflow-hidden">
+            <p className="text-[14px] md:text-[16px] leading-[2] text-neutral-800 font-medium tracking-wide first-line:uppercase first-line:tracking-widest drop-shadow-sm">
               Hi, I am Sachin. Ever since I can remember, I have loved telling and listening to stories with the people around me.
               <br /><br />
               Films have always been something I love to watch any day, and they have a major influence on my beliefs, personality, and even my style.
@@ -53,7 +53,7 @@ export default function Hero() {
 
           <div className="grid gap-5 sm:grid-cols-2 text-[15px] relative z-20">
             {/* Education Card */}
-            <div className="glass-card-warm paper-texture rounded-xl p-6 border-t border-white/20 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group">
               <h3 className="uppercase tracking-[0.25em] text-[13px] text-[#D14538] mb-5 font-bold flex items-center gap-2">
                 <span className="w-2 h-5 bg-[#D14538] rounded-full inline-block" />
                 Education
@@ -78,7 +78,7 @@ export default function Hero() {
             </div>
 
             {/* Languages Card */}
-            <div className="glass-card-warm paper-texture rounded-xl p-5 border-t border-white/40 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group">
               <h3 className="uppercase tracking-[0.2em] text-[11px] text-[#E94E3D] mb-4 font-bold flex items-center gap-2">
                 <span className="w-1.5 h-4 bg-[#E94E3D] rounded-full inline-block" />
                 Languages
