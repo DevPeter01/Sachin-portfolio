@@ -20,8 +20,7 @@ export default function App() {
         <header className="sticky top-0 z-40 bg-black/40 backdrop-blur-xl border-b border-white/5">
           <div className="w-full mx-auto px-4 md:px-6 py-3 flex items-center justify-between gap-3">
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em]">
-              <span className="font-display bg-white text-black px-3 py-1.5 rounded font-bold shadow-lg">REEL</span>
-              <span className="text-white/60 font-light hidden sm:inline">Sachin Portfolio</span>
+              <span className="text-white/60 font-light">Sachin Portfolio</span>
             </div>
             <nav className="flex flex-wrap gap-1 text-[9px] md:text-[10px] uppercase tracking-[0.16em]">
               <a href="#intro" className="px-3 py-2 rounded-full text-white/50 hover:text-white transition-colors">Intro</a>

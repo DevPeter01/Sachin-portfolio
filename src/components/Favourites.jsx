@@ -714,7 +714,7 @@ export default function Favourites() {
 
   return (
     <section id="favourites" className="mt-8">
-      <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-white/20 px-2 py-4 sm:px-3 sm:py-6 overflow-hidden">
+      <div className="relative bg-white/5 backdrop-blur-lg rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-white/10 px-2 py-4 sm:px-3 sm:py-6 overflow-hidden">
         {/* Background film elements */}
         <div className="absolute inset-0 opacity-10">
           {/* Film strip pattern */}
@@ -738,9 +738,6 @@ export default function Favourites() {
         {/* Content */}
         <div className="relative z-10">
           <header className="flex flex-wrap items-baseline gap-4 mb-8">
-            <span className="uppercase tracking-[0.2em] text-[12px] text-amber-200/70 bg-black/40 px-4 py-2 rounded-full border border-dashed border-amber-500/30 font-bold">
-              Influence Board
-            </span>
             <h2 className="font-display text-[20px] uppercase tracking-[0.24em] bg-gradient-to-r from-[#2a2218] to-[#3d3020] px-5 py-2 rounded-full shadow-[0_8px_0_rgba(209,69,56,0.3)] border border-amber-700/40">
               <span className="text-[#D14538]">Favourites</span> <span className="text-amber-100/90">Shelf</span>
             </h2>

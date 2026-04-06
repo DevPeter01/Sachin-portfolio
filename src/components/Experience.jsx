@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import ScrollRevealSection from "./ScrollRevealSection.jsx";
 
 const workCategories = [
@@ -224,9 +225,9 @@ function SoundModal({ data, onClose }) {
     return logos[name] || null;
   };
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-md"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-md"
       onClick={onClose}
     >
       <div
@@ -317,7 +318,8 @@ function SoundModal({ data, onClose }) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -331,9 +333,9 @@ function PhotographyModal({ data, onClose }) {
     onClose();
   };
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-md"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-md"
       onClick={onClose}
     >
       <div
@@ -361,38 +363,17 @@ function PhotographyModal({ data, onClose }) {
 
         {/* Modal Content */}
         <div className="p-6 max-h-[75vh] overflow-y-auto space-y-6 custom-scrollbar">
-          {/* Why Photography - Two Column Layout */}
-          <div className="grid md:grid-cols-[1fr_1fr] gap-6">
-            {/* Left: Why Photography */}
-            <div className="glass-card-warm paper-texture rounded-[16px] p-6 border-l-4 border-l-[#E94E3D]">
-              <h3 className="font-display text-[14px] uppercase tracking-[0.25em] mb-4 text-[#D4A373] font-bold">
-                Why Photography
-              </h3>
-              <div className="space-y-3">
-                {data.whyPhotography.split('\n\n').map((para, idx) => (
-                  <p key={idx} className="text-[16px] leading-relaxed text-[#2B2B2B] italic font-medium">
-                    {para}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: Some of My Works */}
-            <div className="bg-white/30 backdrop-blur-md rounded-[16px] p-6 border border-black/5">
-              <h3 className="font-display text-[14px] uppercase tracking-[0.25em] mb-4 text-[#E94E3D] font-bold">
-                Some of My Works
-              </h3>
-              <ul className="space-y-3">
-                {data.works.map((work, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-[14px] text-[#6B5E57]">
-                    <span className="text-[#D4A373] mt-1.5 text-[11px]">●</span>
-                    <div>
-                      <span className="font-bold text-[#2B2B2B]">{work.title}</span>
-                      <span className="text-[12px] text-[#6B5E57] ml-2 font-medium">— {work.note}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+          {/* Why Photography */}
+          <div className="glass-card-warm paper-texture rounded-[16px] p-6 border-l-4 border-l-[#E94E3D]">
+            <h3 className="font-display text-[14px] uppercase tracking-[0.25em] mb-4 text-[#D4A373] font-bold">
+              Why Photography
+            </h3>
+            <div className="space-y-3">
+              {data.whyPhotography.split('\n\n').map((para, idx) => (
+                <p key={idx} className="text-[16px] leading-relaxed text-[#2B2B2B] italic font-medium">
+                  {para}
+                </p>
+              ))}
             </div>
           </div>
 
@@ -470,7 +451,8 @@ function PhotographyModal({ data, onClose }) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -484,9 +466,9 @@ function EditingModal({ data, onClose }) {
     onClose();
   };
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-md"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-md"
       onClick={onClose}
     >
       <div
@@ -591,7 +573,8 @@ function EditingModal({ data, onClose }) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -607,9 +590,9 @@ function ProjectModal({ project, category, onClose }) {
     onClose();
   };
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
@@ -730,7 +713,8 @@ function ProjectModal({ project, category, onClose }) {
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -743,7 +727,7 @@ export default function Experience() {
 
   // Teaser Components for Editing, Sound, and Photography
   const EditingTeaser = () => (
-    <div className="w-full bg-white/10 backdrop-blur-xl rounded-2xl p-2 mb-8 border border-white/20 shadow-2xl relative overflow-hidden group hover:shadow-accentBlue/20 transition-all duration-500">
+    <div className="w-full bg-white/5 backdrop-blur-lg rounded-2xl p-2 mb-8 border border-white/10 shadow-2xl relative overflow-hidden group hover:shadow-accentBlue/20 transition-all duration-500">
       <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
         {/* Timeline Reel Mockup */}
         <div className="w-full md:w-3/5 bg-black/90 rounded-lg p-2 border-2 border-[#3B82F6]/30 relative overflow-hidden aspect-[21/9] shadow-inner">
@@ -789,7 +773,7 @@ export default function Experience() {
   );
 
   const SoundTeaser = () => (
-    <div className="w-full bg-white/10 backdrop-blur-xl rounded-2xl p-6 mb-8 border border-white/20 shadow-2xl relative overflow-hidden group hover:shadow-accentTeal/20 transition-all duration-500">
+    <div className="w-full bg-white/5 backdrop-blur-lg rounded-2xl p-6 mb-8 border border-white/10 shadow-2xl relative overflow-hidden group hover:shadow-accentTeal/20 transition-all duration-500">
       <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
         {/* Waveform Mockup */}
         <div className="w-full md:w-3/5 bg-black/90 rounded-lg p-6 border-2 border-[#22D3EE]/30 relative overflow-hidden aspect-[21/9] shadow-inner flex flex-col justify-center gap-4">
@@ -840,7 +824,7 @@ export default function Experience() {
   const PhotographyTeaser = () => {
     const data = workCategories.find(c => c.id === "photography");
     return (
-      <div className="w-full bg-white/10 backdrop-blur-xl rounded-2xl p-6 mb-8 border border-white/20 shadow-2xl relative overflow-hidden group hover:shadow-accentYellow/20 transition-all duration-500">
+      <div className="w-full bg-white/5 backdrop-blur-lg rounded-2xl p-6 mb-8 border border-white/10 shadow-2xl relative overflow-hidden group hover:shadow-accentYellow/20 transition-all duration-500">
         <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
           {/* Polaroid Stack */}
           <div className="w-full md:w-3/5 h-56 relative perspective-1000 flex items-center justify-center">
@@ -892,9 +876,6 @@ export default function Experience() {
     <>
       <ScrollRevealSection id="experience">
         <header className="flex flex-wrap items-baseline gap-3 mb-6">
-          <span className="uppercase tracking-[0.18em] text-[10px] text-neutral-600 bg-white/70 px-2 py-1 rounded-full border border-dashed border-black/20">
-            Reel Experience
-          </span>
           <h2 className="font-display text-[17px] uppercase tracking-[0.24em] bg-[#fff0cc] px-3 py-1 rounded-full shadow-[0_8px_0_rgba(255,75,75,0.3)] border border-black">
             <span className="text-accentRed">Work</span> Credits
           </h2>
@@ -932,12 +913,6 @@ export default function Experience() {
 
         {/* Active Category Content */}
         <div className="min-h-[280px]">
-          {/* Description */}
-          <div className="mb-6 p-4 bg-white/10 backdrop-blur-md rounded-[16px] border border-white/10 w-full mx-auto">
-            <p className="text-[15px] leading-[1.8] text-neutral-700 w-full font-medium">
-              {activeData?.description}
-            </p>
-          </div>
 
           {/* Teasers or Category Content */}
           {activeCategory === "editing" ? (

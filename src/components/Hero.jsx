@@ -7,8 +7,8 @@ export default function Hero() {
     <ScrollRevealSection id="intro" className="mt-0">
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.8fr)] items-start relative px-1">
         {/* Left: photo frame */}
-        <div className="relative px-2 z-20">
-          <div className="relative rounded-[32px] p-2 bg-[#FAF9F6] shadow-2xl -rotate-2 overflow-hidden border-[8px] border-white z-20">
+        <div className="relative px-2 z-20 pt-12">
+          <div className="relative rounded-[32px] p-2 bg-[#FAF9F6] shadow-2xl -rotate-2 overflow-hidden border-[8px] border-white z-20 mt-4">
             <div className="w-full aspect-[4/5] rounded-[24px] overflow-hidden bg-[#EAEAEA] relative z-20">
               <img
                 src={profileImage}
@@ -39,8 +39,8 @@ export default function Hero() {
           </p>
 
           {/* Cinematic Summary Panel */}
-          <div className="bg-white/10 backdrop-blur-xl rounded-[28px] p-6 md:px-8 md:py-10 border border-white/20 w-full mb-10 relative shadow-2xl overflow-hidden">
-            <p className="text-[14px] md:text-[16px] leading-[2] text-neutral-800 font-medium tracking-wide first-line:uppercase first-line:tracking-widest drop-shadow-sm">
+          <div className="bg-white/5 backdrop-blur-lg rounded-[28px] p-6 md:px-8 md:py-10 border border-white/10 w-full mb-10 relative shadow-2xl overflow-hidden">
+            <p className="text-[14px] md:text-[16px] leading-[2] text-neutral-100 font-medium tracking-wide first-line:uppercase first-line:tracking-widest drop-shadow-sm">
               Hi, I am Sachin. Ever since I can remember, I have loved telling and listening to stories with the people around me.
               <br /><br />
               Films have always been something I love to watch any day, and they have a major influence on my beliefs, personality, and even my style.
@@ -53,49 +53,49 @@ export default function Hero() {
 
           <div className="grid gap-5 sm:grid-cols-2 text-[15px] relative z-20">
             {/* Education Card */}
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group">
+            <div className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group">
               <h3 className="uppercase tracking-[0.25em] text-[13px] text-[#D14538] mb-5 font-bold flex items-center gap-2">
                 <span className="w-2 h-5 bg-[#D14538] rounded-full inline-block" />
                 Education
               </h3>
-              <ul className="space-y-3 text-[#2B2B2B]">
+              <ul className="space-y-3 text-neutral-200">
                 <li className="flex items-start gap-3">
                   <span className="text-[#E94E3D] mt-1 text-[10px]">■</span>
                   <div className="flex flex-col">
                     <span className="font-bold text-[13px]">BFA - Film Making</span>
-                    <span className="text-[11px] text-[#6B5E57] font-medium mt-0.5">2023 - 2027</span>
+                    <span className="text-[11px] text-neutral-400 font-medium mt-0.5">2023 - 2027</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-[#E94E3D] mt-1 text-[10px]">■</span>
-                  <span className="font-semibold text-[12px] leading-tight text-[#2B2B2B]">LV Prasad College of Media Studies</span>
+                  <span className="font-semibold text-[12px] leading-tight text-neutral-100">LV Prasad College of Media Studies</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-[#E94E3D] mt-1 text-[10px]">■</span>
-                  <span className="font-bold text-[#6B5E57] uppercase tracking-wider text-[10px]">Chennai</span>
+                  <span className="font-bold text-neutral-400 uppercase tracking-wider text-[10px]">Chennai</span>
                 </li>
               </ul>
             </div>
 
             {/* Languages Card */}
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group">
+            <div className="bg-white/5 backdrop-blur-lg rounded-xl p-5 border border-white/10 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group">
               <h3 className="uppercase tracking-[0.2em] text-[11px] text-[#E94E3D] mb-4 font-bold flex items-center gap-2">
                 <span className="w-1.5 h-4 bg-[#E94E3D] rounded-full inline-block" />
                 Languages
               </h3>
-              <ul className="space-y-4 text-[#2B2B2B]">
-                <li className="flex items-center gap-3 bg-[#EAEAEA]/30 p-2 rounded-lg border border-black/5">
-                  <div className="w-8 h-8 rounded-full bg-[#D14538]/10 flex items-center justify-center text-[#D14538] font-bold text-[10px]">EN</div>
+              <ul className="space-y-4 text-neutral-200">
+                <li className="flex items-center gap-3 bg-white/10 p-2 rounded-lg border border-white/5 shadow-inner">
+                  <div className="w-8 h-8 rounded-full bg-[#D14538]/20 flex items-center justify-center text-[#E94E3D] font-bold text-[10px] border border-[#E94E3D]/30 shadow-[0_0_10px_rgba(233,78,61,0.2)]">EN</div>
                   <div>
-                    <span className="font-bold text-[12px] block">English</span>
-                    <span className="text-[10px] text-[#6B5E57] uppercase tracking-wide">Read · Write · Type</span>
+                    <span className="font-bold text-[12px] block text-neutral-100">English</span>
+                    <span className="text-[10px] text-neutral-400 uppercase tracking-wide">Read · Write · Type</span>
                   </div>
                 </li>
-                <li className="flex items-center gap-3 bg-white/30 p-2 rounded-lg border border-black/5">
-                  <div className="w-8 h-8 rounded-full bg-[#D4A373]/10 flex items-center justify-center text-[#D4A373] font-bold text-[10px]">TA</div>
+                <li className="flex items-center gap-3 bg-white/10 p-2 rounded-lg border border-white/5 shadow-inner">
+                  <div className="w-8 h-8 rounded-full bg-[#D4A373]/20 flex items-center justify-center text-[#D4A373] font-bold text-[10px] border border-[#D4A373]/30 shadow-[0_0_10px_rgba(212,163,115,0.2)]">TA</div>
                   <div>
-                    <span className="font-bold text-[12px] block">Tamil</span>
-                    <span className="text-[10px] text-[#6B5E57] uppercase tracking-wide">Read · Write</span>
+                    <span className="font-bold text-[12px] block text-neutral-100">Tamil</span>
+                    <span className="text-[10px] text-neutral-400 uppercase tracking-wide">Read · Write</span>
                   </div>
                 </li>
               </ul>

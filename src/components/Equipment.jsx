@@ -7,7 +7,7 @@ import macMini from "../../assets/apple-mac-mini-m4-pro-computer-tower-EKrMyzA-6
 export default function Equipment() {
   return (
     <section id="equipment" className="mt-8">
-      <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-white/20 px-2 py-4 sm:px-3 sm:py-6 overflow-hidden">
+      <div className="relative bg-white/5 backdrop-blur-lg rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-white/10 px-2 py-4 sm:px-3 sm:py-6 overflow-hidden">
         {/* Background film elements */}
         <div className="absolute inset-0 opacity-10">
           {/* Film strip pattern */}
@@ -31,9 +31,6 @@ export default function Equipment() {
         {/* Content */}
         <div className="relative z-10">
           <header className="flex flex-wrap items-baseline gap-3 mb-6">
-            <span className="uppercase tracking-[0.18em] text-[10px] text-amber-200/70 bg-black/40 px-3 py-1.5 rounded-full border border-dashed border-amber-500/30">
-              Tools Of The Trade
-            </span>
             <h2 className="font-display text-[17px] uppercase tracking-[0.24em] bg-gradient-to-r from-[#2a2218] to-[#3d3020] px-4 py-1.5 rounded-full shadow-[0_8px_0_rgba(255,75,75,0.3)] border border-amber-700/40">
               <span className="text-accentRed">Equipment</span> <span className="text-amber-100">I Own</span>
             </h2>
