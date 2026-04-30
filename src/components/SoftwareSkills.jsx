@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 const skills = [
   { name: "DaVinci Resolve", level: 88, note: "Color · Edit · Grade" },
   { name: "Adobe Premiere Pro", level: 82, note: "Narrative & Reels" },
+  { name: "Runway ML", level: 100, note: "AI photo and image generation" },
   { name: "Adobe Photoshop", level: 78, note: "Posters & Frames" },
   { name: "Adobe Lightroom", level: 100, note: "Look & Mood" },
   { name: "Final Cut Pro", level: 70, note: "Mac-based Editing" },
